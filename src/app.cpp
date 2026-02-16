@@ -1,29 +1,29 @@
-// Source - https://stackoverflow.com/a/72251462
-// Posted by 0x8ff
-// Retrieved 2026-02-16, License - CC BY-SA 4.0
-
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QApplication>
-
-class MyWindow : public QDialog {
-public:
-    MyWindow(QWidget* parent = nullptr);
-};
-
-MyWindow::MyWindow(QWidget* parent)
-    : QDialog(parent)
-{
-    setWindowTitle("MyWindow");
-
-    // Make widgets, etc...
-}
+#include <qboxlayout.h>
+#include <qmainwindow.h>
+#include <qnamespace.h>
+#include <qsize.h>
+#include <qwidget.h>
+#include <QLabel>
+#include <QBoxLayout>
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
+    QMainWindow * mainWindow = new QMainWindow();
+    QWidget *centralWidget = new QWidget(mainWindow);
 
-    auto win = new MyWindow;
-    win->show();
+    QBoxLayout *  box = new QHBoxLayout(centralWidget); 
+    
+    QLabel * label = new QLabel("Hello World"); 
+
+    box->addWidget(label); 
+
+    label->setAlignment(Qt::AlignCenter); 
+
+    mainWindow->setWindowTitle("Anime Fetch");
+    mainWindow->show();
 
     return app.exec();
 }
