@@ -1,0 +1,6 @@
+# These files will be downloaded via a scripts
+*.gif
+*.jpg
+*.avi
+*.png
+*.webp
