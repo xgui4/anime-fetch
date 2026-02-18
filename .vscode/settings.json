@@ -1,0 +1,5 @@
+{
+    "cmake.debugConfig": {
+        "type": "lldb"
+    }
+}
