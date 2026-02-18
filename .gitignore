@@ -82,3 +82,6 @@ CMakeLists.txt.user*
 /build*/
 
 *.cache/
+
+# Temp/private file 
+~*
