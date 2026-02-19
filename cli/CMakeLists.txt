@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(ANIME_FETCH_CLI_SRC
+    src/cmdline_utils.cpp
     src/main.cpp
 )
 
