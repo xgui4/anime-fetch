@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 {
     const string REPO_LINK = "https://github.com/xgui4/anime-fetch"; 
     const string REPO_LINK_LABEL = "https://github.com/xgui4/anime-fetch"; 
-    const string NAME = "Anime-Fetch-CLI"; 
+    const string NAME = "Anime-Fetch"; 
     const string VERSION = "0.0.0"; 
 
     if (argc > 1) {
@@ -47,6 +47,10 @@ int main(int argc, char *argv[])
 
         else if (argument == "--license" || argument == "-L") {
             cout << "Anime-Fetch is license under the GPLv3 license" << endl;
+        }
+
+        else if (argument == "--gui" || argument == "-g") {
+            cout << "GUI Mode coming soon!" << endl; 
         }
 
         else if (argument == "--help" || argument == "-h") {
@@ -72,7 +76,7 @@ int main(int argc, char *argv[])
             cout << generate_command_block_help_str(
                 Color::ForegroundYellow, 
                 NAME, 
-                "Show information about the " + colored_title + " program", 
+                "Show information about the " + colored_title, 
                 Color::ForegroundBlue, 
                 "--about",
                 "-a"
@@ -81,12 +85,21 @@ int main(int argc, char *argv[])
             cout << generate_command_block_help_str(
                 Color::ForegroundYellow, 
                 NAME, 
-                "Show the license information of " + colored_title + " program", 
+                "Show the license information of " + colored_title, 
                 Color::ForegroundBlue, 
                 "--license",
                 "-L"
             ) << endl; 
 
+            cout << generate_command_block_help_str(
+                Color::ForegroundYellow, 
+                NAME, 
+                "Open the GUI of " + colored_title, 
+                Color::ForegroundBlue, 
+                "--gui",
+                "-g"
+            ) << endl; 
+            
             cout << generate_command_block_help_str(
                 Color::ForegroundYellow, 
                 NAME, 

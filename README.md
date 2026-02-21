@@ -6,6 +6,14 @@ A noefetch-inspired utility that fetch you system info with a [OS-Tan](https://e
 
 This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch](https://github.com/xgui4/wpfetch)
 
+## C++ Toolchains
+
+- Clang (C++ 17)
+
+- CMake 3.16 
+
+- QT Widget 6 (for the GUI)
+
 ## License 
 
 [GPLv3](LICENSE.md)
