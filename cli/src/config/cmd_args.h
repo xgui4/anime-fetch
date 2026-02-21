@@ -1,6 +1,7 @@
 #pragma once 
 
 #include <string>
+#include "array"
 
 using std::string; 
 
@@ -26,7 +27,31 @@ int open_gui(
 ); 
 
 void display_help_info(
-    string app_name, 
-    string options_desc[] = {},
-    string args_list[] = {}
+    string app_name
 ); 
+
+enum class CmdLineArgs {
+    CmdVersion,
+    CmdVersionShort,
+    CmdAbout,
+    CmdAboutShort,
+    CmdLicense,
+    CmdLicenseShort,
+    CmdHelp,
+    CmdHelpShort,
+    CmdGui,
+    CmdGuiShort
+}; 
+
+const std::array<const char*, 10> ARGS_LISTS = std::array<const char*, 10>{
+    "--version",
+    "-v",
+    "--about",
+    "-a",
+    "--license",
+    "-L",
+    "--help",
+    "-h",
+    "--gui",
+    "-g"
+}; 

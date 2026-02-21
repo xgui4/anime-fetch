@@ -10,7 +10,7 @@ find_package(Curses)
 set(ANIME_FETCH_SRC
     src/utils/cmdline_utils.cpp
     src/utils/utils.cpp
-    # src/services/fetcher.cpp
+    src/services/system_info_service.cpp
     src/config/app_config.cpp
     src/config/cmd_args.cpp
     src/main.cpp

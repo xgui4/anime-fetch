@@ -4,6 +4,7 @@
 #include "cmd_args.h"
 #include "../utils/utils.hpp"
 #include "../utils/cmdline_utils.h"
+#include "app_config.h"
 
 using std::string; 
 using std::cout;
@@ -14,7 +15,6 @@ void display_app_version(string app_title, string version) {
 }
 
 void display_about_app(string app_title, string about_info, string repo_link_label, string repo_link) {
-    
     if (about_info == "") {
         cout << "A neofetch-inspired utility that fetch you system info with a OS-Tan." <<  endl;
         cout << endl;
@@ -40,7 +40,7 @@ int open_gui(string path, const char* args[]) {
     return 0; 
 }
 
-void display_help_info(string app_name, string options_desc[], string args_list[]) {
+void display_help_info(string app_name, AppConfig appConfig) {
     cout << generate_command_block_help_str(
         Color::ForegroundYellow, 
         app_name, 
@@ -55,8 +55,8 @@ void display_help_info(string app_name, string options_desc[], string args_list[
         app_name, 
         "Show the " + app_name + " version running", 
         Color::ForegroundBlue, 
-        "--version",
-        "-v"
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdVersion),
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdVersionShort)
     ) << endl; 
 
     cout << generate_command_block_help_str(
@@ -64,8 +64,8 @@ void display_help_info(string app_name, string options_desc[], string args_list[
         app_name, 
         "Show information about the " + app_name, 
         Color::ForegroundBlue, 
-        "--about",
-        "-a"
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdAbout),
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdVersionShort)
     ) << endl; 
 
     cout << generate_command_block_help_str(
@@ -73,8 +73,8 @@ void display_help_info(string app_name, string options_desc[], string args_list[
         app_name, 
         "Show the license information of " + app_name, 
         Color::ForegroundBlue, 
-        "--license",
-        "-L"
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdLicense),
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdLicenseShort)
     ) << endl; 
 
     cout << generate_command_block_help_str(
@@ -82,8 +82,8 @@ void display_help_info(string app_name, string options_desc[], string args_list[
         app_name, 
         "Open the GUI of " + app_name, 
         Color::ForegroundBlue, 
-        "--gui",
-        "-g"
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdGui),
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdGuiShort)
     ) << endl; 
     
     cout << generate_command_block_help_str(
@@ -91,7 +91,7 @@ void display_help_info(string app_name, string options_desc[], string args_list[
         app_name, 
         "Show this help message", 
         Color::ForegroundBlue, 
-        "--help",
-        "-h"
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdHelp),
+        appConfig.getCommandLineFlag(CmdLineArgs::CmdHelpShort)
     ) << endl; 
 }
