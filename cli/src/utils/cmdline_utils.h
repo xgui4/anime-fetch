@@ -1,5 +1,7 @@
+#pragma once
+
 #include <string>
-#include "colors.hpp"
+#include "../colors.hpp"
 
 std::string create_hyperlink(std::string title, std::string link); 
 

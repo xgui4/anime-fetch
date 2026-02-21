@@ -8,7 +8,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Curses)
 
 set(ANIME_FETCH_SRC
-    src/cmdline_utils.cpp
+    src/utils/cmdline_utils.cpp
+    src/utils/utils.cpp
+    # src/services/fetcher.cpp
+    src/config/app_config.cpp
+    src/config/cmd_args.cpp
     src/main.cpp
 )
 
