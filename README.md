@@ -6,6 +6,14 @@ A noefetch-inspired utility that fetch you system info with a [OS-Tan](https://e
 
 This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch](https://github.com/xgui4/wpfetch)
 
+## Dependancy/Library needed
+
+- GUI
+    - QT 6
+- CLI
+    - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
+    - Curses
+
 ## C++ Toolchains
 
 - Clang (C++ 17)
@@ -13,6 +21,13 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - CMake 3.16 
 
 - QT Widget 6 (for the GUI)
+
+## Helper Scripts 
+
+> [!Note] right now they only support UNIX, coming later for Windows, macOS is not officialy supported since i do not own a Mac
+
+- `install_app.sh` : install the assets ans app in portable modes (need superuser for certain task)
+- `install_library.sh`: install the lfreist/hwinfo library (need superuser priviliged)
 
 ## License 
 

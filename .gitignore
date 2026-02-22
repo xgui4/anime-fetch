@@ -85,3 +85,7 @@ CMakeLists.txt.user*
 
 # Temp/private file 
 ~*
+
+# bin/lib
+
+lib/hwinfo
