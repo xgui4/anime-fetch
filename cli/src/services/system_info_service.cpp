@@ -2,6 +2,10 @@
 #include "../utils/cmdline_utils.h"
 #include "../utils/utils.hpp"
 
+#ifdef __FreeBSD__
+  #include <sys/sysctl.h>
+#endif
+
 #ifdef __linux__
  #include <hwinfo/cpu.h>
  #include <hwinfo/os.h>
@@ -9,19 +13,14 @@
  #include <hwinfo/hwinfo.h>
 #endif
 
-#include <iostream>
 #include <stdexcept>
 #include <vector>
 
 SystemInfoService::SystemInfoService() {
-  std::cout << create_colored_str(Color::ForegroundCyan, "[Info]")
-            << "System Info Service Started!" << std::endl;
   os_type = this->getOsType();
 }
 
 SystemInfoService::~SystemInfoService() {
-  std::cout << create_colored_str(Color::ForegroundCyan, "[Info]")
-            << "System Info Service Stopped!" << std::endl;
 }
 
 std::string SystemInfoService::getSystemInfo() const {
@@ -38,7 +37,10 @@ std::string SystemInfoService::getOperatingSystemInfo() const {
       return "OS : Unknow"; 
     }
   #endif
-  return "TBD"; 
+  #ifdef __unix
+    return  "OS : " + exec("uname -ns"); 
+  #endif
+  return "OS : Unknown";
 }
 
 std::string SystemInfoService::getKernelName() const {
@@ -51,7 +53,10 @@ std::string SystemInfoService::getKernelName() const {
         return "Kernel : Unknow"; 
       }
   #endif
-  return "TBD";
+  #ifdef __unix
+    return  "Kernel : " + exec("uname -Kpr"); 
+  #endif
+  return "Kernel : Unknown";
 }
 
 std::vector<CPU_INFO> SystemInfoService::getCpuInfo() const {
@@ -75,6 +80,16 @@ std::vector<CPU_INFO> SystemInfoService::getCpuInfo() const {
     catch (std::runtime_error error) {
       std::cout << create_error_str_from_runtime_error(error) << std::endl; 
     }
+  #endif
+  #ifdef __FreeBSD__
+    std::vector<CPU_INFO> cpu{ 
+      CPU_INFO {
+        "",
+        exec("sysctl -n hw.model"),
+        std::stoi (exec("sysctl -n hw.ncpu"))
+      }
+    };
+    return cpu; 
   #endif
   return std::vector<CPU_INFO> {CPU_INFO { "Error", "Error", 1}};
 }
@@ -114,6 +129,9 @@ std::string SystemInfoService::getMemoryInfo() const {
       std::cout << create_error_str_from_runtime_error(error)<< std::endl;; 
       return "Kernel : Unknow"; 
     }
+  #endif
+  #ifdef __FreeBSD__
+    return  "Memory : " + exec("sysctl -n hw.realmem"); 
   #endif
   return "TBD"; 
 }
@@ -156,16 +174,22 @@ std::string SystemInfoService::getProcessesCountRunning() const {
 
 OS_TYPE SystemInfoService::getOsType() const {
     #ifdef _WIN32
-        return OS_TYPE::Windows; 
+      return OS_TYPE::Windows; 
     #elif __linux__
-        return OS_TYPE::Linux;
+      return OS_TYPE::Linux;
+    #elif __FreeBSD__
+      return OS_TYPE::BSD; 
+    #elif __NetBSD__ 
+      return OS_TYPE::BSD; 
+    #elif __OpenBSD__ 
+      return OS_TYPE::BSD; 
+    #elif __DragonflyBSD__ 
+      return OS_TYPE::BSD; 
     #elif __APPLE__
-        return OS_TYPE::MacOS; 
-    #elif __Unix__
-        return OS_TYPE::Unix; 
-    #elif __BSD__
-        return OS_TYPE::BSD; 
+      return OS_TYPE::MacOS; 
+    #elif __unix__
+      return OS_TYPE::Unix; 
     #else
-        return OS_TYPE::Other; 
+      return OS_TYPE::Other; 
     #endif
 }

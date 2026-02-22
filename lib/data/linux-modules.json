@@ -1,5 +1,0 @@
-{
-    "hostname" : "cat /etc/hostname",
-    "os" : "lsb_release -d -s",
-    "image" :  "/usr/share/pixmaps/$(grep -Po 'LOGO=\\K.*' /etc/os-release).png"
-}

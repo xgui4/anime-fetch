@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     QBoxLayout *  box = new QHBoxLayout(centralWidget); 
     QLabel * label = new QLabel("Hello World"); 
 
-    QPixmap image = QPixmap("/home/xgui4/develop/anime-fetch/assets/image.png");
+    QPixmap image = QPixmap("/home/xgui4/.anime-fetch/icons/appicon.png");
     QLabel* imgLabel = new QLabel();
     imgLabel->setPixmap(image); 
 

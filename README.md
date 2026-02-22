@@ -13,6 +13,8 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - CLI
     - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
     - Curses
+- Global
+    - Bash/Shell Script for UNIX and bat file for Windows
 
 ## C++ Toolchains
 

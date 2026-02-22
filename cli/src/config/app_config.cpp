@@ -3,7 +3,6 @@
 #include "app_config.h"
 #include "cmd_args.h"
 
-
 std::string AppConfig::getCommandLineFlag(CmdLineArgs arg) {
   return ARGS_LISTS.at((int)arg);
 }
