@@ -1,35 +1,35 @@
-#include <string> 
 #include "utils.hpp"
+#include <string>
 
 using std::string;
 
-string exec(const char* cmd, const char* args[], const int argc) {
-    
-    string args_string = ""; 
+string exec(const char *cmd, const char *args[], const int argc) {
 
-    for (int i = 0; i < argc; i++) {
-        args_string += (string)" " + args[i]; 
-    } 
+  string args_string = "";
 
-    string full_cmd_string = cmd + args_string; 
+  for (int i = 0; i < argc; i++) {
+    args_string += (string) " " + args[i];
+  }
 
-    const char* full_cmd = full_cmd_string.c_str(); 
+  string full_cmd_string = cmd + args_string;
 
-    char buffer[128];
+  const char *full_cmd = full_cmd_string.c_str();
 
-    string result = "";
+  char buffer[128];
 
-    FILE* pipe = popen(full_cmd, "r");
+  string result = "";
 
-    if (!pipe) {
-        return "Erreur";
-    }
+  FILE *pipe = popen(full_cmd, "r");
 
-    while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
-        result += buffer;
-    }
+  if (!pipe) {
+    return "Erreur";
+  }
 
-    pclose(pipe);
-    
-    return result;
+  while (fgets(buffer, sizeof(buffer), pipe) != NULL) {
+    result += buffer;
+  }
+
+  pclose(pipe);
+
+  return result;
 }

@@ -11,7 +11,9 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - GUI
     - QT 6
 - CLI
-    - TBD
+    - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
+        - `install-library.sh` helper to install the library (need superuser priviliged)
+    - Curses
 
 ## C++ Toolchains
 
