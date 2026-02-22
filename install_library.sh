@@ -11,8 +11,6 @@ else
     echo "The libray install must be running as root"
 fi
 
-
-
 # Install configuration: ""
 #-- Installing: /usr/local/lib/libhwinfo_battery.so
 #-- Installing: /usr/local/include/hwinfo/battery.h

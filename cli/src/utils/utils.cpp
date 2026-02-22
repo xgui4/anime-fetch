@@ -33,3 +33,9 @@ string exec(const char *cmd, const char *args[], const int argc) {
 
   return result;
 }
+
+std::string bytes_to_gigabytes(long bytes) {
+  const unsigned long long GIBIBYTE = 1024ULL * 1024ULL * 1024ULL;
+  return std::to_string(static_cast<double>(bytes) / GIBIBYTE);
+}
+ 

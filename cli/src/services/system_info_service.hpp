@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "../models/cpu_info.hpp"
+#include "../models/gpu_info.hpp"
 
 class SystemInfoService {
 
@@ -15,7 +16,7 @@ public:
   std::string getOperatingSystemInfo() const;
   std::string getKernelName() const;
   std::vector<CPU_INFO> getCpuInfo() const;
-  std::string getGpuInfo() const;
+  std::vector<GPU_INFO> getGpuInfo() const;
   std::string getMemoryInfo() const;
   std::string getSwapMemoryInfo() const;
   std::string getStorageInfo() const;
@@ -27,8 +28,8 @@ public:
   std::string getInitSystem() const;
   std::string getProcessesCountRunning() const;
 
+  OS_TYPE getOsType() const;
 private:
   OS_TYPE os_type;
 
-  OS_TYPE getOsType() const;
 };

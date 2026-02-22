@@ -12,7 +12,6 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
     - QT 6
 - CLI
     - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
-        - `install-library.sh` helper to install the library (need superuser priviliged)
     - Curses
 
 ## C++ Toolchains
@@ -22,6 +21,13 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - CMake 3.16 
 
 - QT Widget 6 (for the GUI)
+
+## Helper Scripts 
+
+> [!Note] right now they only support UNIX, coming later for Windows, macOS is not officialy supported since i do not own a Mac
+
+- `install_app.sh` : install the assets ans app in portable modes (need superuser for certain task)
+- `install_library.sh`: install the lfreist/hwinfo library (need superuser priviliged)
 
 ## License 
 
