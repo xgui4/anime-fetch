@@ -8,31 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Curses for the CLI
 find_package(Curses)
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    # lfreist-hwinfo for Hardware Info 
-    set(lfreist-hwinfo_DIR "/usr/local/lib/cmake/hwinfo")
-    find_package(lfreist-hwinfo REQUIRED PATHS ${lfreist-hwinfo_DIR} NO_DEFAULT_PATH)
-endif()
-
-set(ANIME_FETCH_SRC
-    src/utils/cmdline_utils.cpp
-    src/utils/utils.cpp
-    src/services/system_info_service.cpp
-    src/config/app_config.cpp
-    src/config/cmd_args.cpp
+add_executable(Anime-Fetch
     src/main.cpp
 )
 
-add_executable(Anime-Fetch ${ANIME_FETCH_SRC})
-
 # Link the library
-
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    target_link_libraries(Anime-Fetch PRIVATE lfreist-hwinfo::hwinfo ${CURSES_LIBRARIES})
-else()
-    target_link_libraries(Anime-Fetch PRIVATE ${CURSES_LIBRARIES})
-endif()
-
+target_link_libraries(Anime-Fetch PRIVATE Anime-Fetch-Lib ${CURSES_LIBRARIES})
 
 set_target_properties(Anime-Fetch
  PROPERTIES

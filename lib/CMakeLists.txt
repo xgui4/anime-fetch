@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Define the shared library target
 add_library(Anime-Fetch-Lib SHARED 
-    src/lib.cpp
     src/os_type.hpp
     src/colors.hpp
     src/models/cpu_info.hpp
@@ -17,17 +16,17 @@ add_library(Anime-Fetch-Lib SHARED
     src/utils/cmdline_utils.h
     src/utils/utils.cpp
     src/utils/utils.hpp
+    src/config/app_config.cpp
+    src/config/app_config.h
+    src/config/cmd_args.h
+    src/config/cmd_args.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    # lfreist-hwinfo for Hardware Info 
     set(lfreist-hwinfo_DIR "/usr/local/lib/cmake/hwinfo")
     find_package(lfreist-hwinfo REQUIRED PATHS ${lfreist-hwinfo_DIR} NO_DEFAULT_PATH)
 endif()
 
-# Specify the include directories for targets that link to 'utils'.
-# The PUBLIC keyword means that the include directory will be passed to 
-# the main application as well.
 target_include_directories(Anime-Fetch-Lib PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )

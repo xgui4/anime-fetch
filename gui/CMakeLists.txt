@@ -14,3 +14,11 @@ qt_add_executable(Anime-Fetch-GUI
 )
 
 target_link_libraries(Anime-Fetch-GUI PRIVATE Anime-Fetch-Lib Qt${QT_VERSION_MAJOR}::Widgets)
+
+set_target_properties(Anime-Fetch-GUI
+ PROPERTIES
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)

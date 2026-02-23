@@ -1,7 +1,7 @@
 #include "config/app_config.h"
 #include "config/cmd_args.h"
 #include "os_type.hpp"
-#include "services/system_info_service.hpp"
+#include "services/system_info_service.h"
 #include "utils/cmdline_utils.h"
 #include "utils/utils.hpp"
 #include <iostream>
@@ -23,15 +23,15 @@ int main(int argc, char *argv[]) {
     const string argument = argv[1];
 
     if (argument == "--version" || argument == "-v") {
-      display_app_version(colored_title, appConfig.VERSION);
+      cout << get_app_version_str(colored_title, appConfig.VERSION) << endl; 
     }
 
     else if (argument == "--about" || argument == "-a") {
-      display_about_app(colored_title, appConfig);
+      cout << get_about_app_str(colored_title, appConfig) << endl; 
     }
 
     else if (argument == "--license" || argument == "-L") {
-      display_license_info(colored_title, appConfig.LICENSE_INFO);
+      cout << get_license_info_str(colored_title, appConfig.LICENSE_INFO) << endl; 
     }
 
     else if (argument == "--gui" || argument == "-g") {
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     }
 
     else if (argument == "--help" || argument == "-h") {
-      display_help_info(colored_title, appConfig);
+      cout << get_help_info_str(colored_title, appConfig) << endl; 
     }
   }
 
