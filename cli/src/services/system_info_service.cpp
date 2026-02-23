@@ -1,6 +1,7 @@
 #include "system_info_service.hpp"
 #include "../utils/cmdline_utils.h"
 #include "../utils/utils.hpp"
+#include <iostream>
 
 #ifdef __FreeBSD__
   #include <sys/sysctl.h>
@@ -33,7 +34,7 @@ std::string SystemInfoService::getOperatingSystemInfo() const {
       return "OS : " +  hwinfo::OS().name(); 
     }
     catch (std::runtime_error error) {
-      std::cout << create_error_str_from_runtime_error(error)<< std::endl;; 
+      std::cout << create_error_str_from_runtime_error(error) << std::endl;; 
       return "OS : Unknow"; 
     }
   #endif

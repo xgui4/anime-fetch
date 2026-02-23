@@ -1,6 +1,8 @@
 #include "system_info_service.h"
 #include "../utils/cmdline_utils.h"
 #include "../utils/utils.hpp"
+#include <iostream>
+#include <ostream>
 
 #ifdef __FreeBSD__
   #include <sys/sysctl.h>
@@ -49,7 +51,7 @@ std::string SystemInfoService::getKernelName() const {
         return "Kernel : " +  hwinfo::OS().kernel(); 
       }
       catch (std::runtime_error error) {
-        std::cout << create_error_str_from_runtime_error(error)<< std::endl;; 
+        std::cout << create_error_str_from_runtime_error(error) << std::endl;; 
         return "Kernel : Unknow"; 
       }
   #endif

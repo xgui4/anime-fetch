@@ -13,4 +13,4 @@ qt_add_executable(Anime-Fetch-GUI
     src/app.cpp
 )
 
-target_link_libraries(Anime-Fetch-GUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Anime-Fetch-GUI PRIVATE Anime-Fetch-Lib Qt${QT_VERSION_MAJOR}::Widgets)

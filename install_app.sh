@@ -1,29 +1,32 @@
 #!/usr/bin/env sh
 
-if [ "$1" = "linux" ]; then
+if [ "$1" = "compile" ]; then
+
+cmake --build --preset publish
+
+elif [ "$1" = "linux" ]; then
     if [ "$2" = "-r"  ] || [ "$2" = "--remove" ]; then
         sudo rm -rf /bin/Anime-Fetch
         rm -rf ~/.anime-fetch/; 
     else 
-        if [ -f "$HOME/.anime-fetch/" ]; then
+        if [ -d "$HOME/.anime-fetch/" ]; then
             sudo rm -rf /bin/Anime-Fetch-GUI
             sudo rm -rf /bin/Anime-Fetch
             rm -rf ~/.local/share/applications/anime-fetch.desktop
             rm -rf ~/.anime-fetch/; 
         fi      
         cp pkg/anime-fetch-linux.desktop ~/.local/share/applications/anime-fetch.desktop
-        sudo ln -s "$PWD"/publish/build/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
-        sudo ln -s "$PWD"/publish/build/cli/Anime-Fetch /bin/Anime-Fetch
+        sudo ln -s "$PWD"/build/publish/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
+        sudo ln -s "$PWD"/build/publish/cli/Anime-Fetch /bin/Anime-Fetch
         cp -r assets/ ~/.anime-fetch/
     fi
-fi
-if [ "$1" = "freebsd" ]; then
+elif [ "$1" = "freebsd" ]; then
     if [ "$2" = "-r"  ] || [ "$2" = "--remove" ]; then
         sudo rm -rf /usr/local/sbin/Anime-Fetch
         sudo rm -rf /usr/local/sbin/Anime-Fetch-GUI
         rm -rf ~/.anime-fetch/; 
     else 
-        if [ -f "$HOME/.anime-fetch/" ]; then
+        if [ -d "$HOME/.anime-fetch/" ]; then
             sudo rm -rf /usr/local/sbin/Anime-Fetch
             sudo rm -rf /usr/local/sbin/Anime-Fetch-GUI
             rm -rf ~/.anime-fetch/; 

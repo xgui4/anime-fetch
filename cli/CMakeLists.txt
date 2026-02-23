@@ -27,7 +27,7 @@ add_executable(Anime-Fetch ${ANIME_FETCH_SRC})
 
 # Link the library
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_NAME STREQUAL "Windows")
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(Anime-Fetch PRIVATE lfreist-hwinfo::hwinfo ${CURSES_LIBRARIES})
 else()
     target_link_libraries(Anime-Fetch PRIVATE ${CURSES_LIBRARIES})

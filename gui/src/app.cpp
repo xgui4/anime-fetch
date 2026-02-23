@@ -16,28 +16,55 @@
 #include <QBoxLayout>
 #include <QDir>
 #include <QDebug>
+#include <vector>
+#include "services/system_info_service.h" 
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    QMainWindow * mainWindow = new QMainWindow();
+    auto * mainWindow = new QMainWindow();
 
     mainWindow->setMinimumHeight(500); 
     mainWindow->setMinimumWidth(500); 
 
-    QWidget *centralWidget = new QWidget(mainWindow);
+    auto *centralWidget = new QWidget(mainWindow);
 
-    QBoxLayout * box = new QHBoxLayout(centralWidget); 
+    auto * box = new QHBoxLayout(centralWidget); 
 
     box->setSpacing(5);
 
     QSysInfo systemInfo; 
+    SystemInfoService systemInfoService; 
 
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 
     const QString OS_NAME_STR = systemInfo.prettyProductName(); 
+    std::vector<CPU_INFO> cpus = systemInfoService.getCpuInfo(); 
 
-    QLabel * label = new QLabel("Hostname: " + HOSTNAME_STR + "\n" + "Kernel: " + KERNEL_NAME_STR + "\n" + "OS: " + OS_NAME_STR); 
+    QString cpus_info_string = ""; 
+
+    for (int i = 0; i < cpus.size(); i++) {
+        cpus_info_string += cpus.at(i).display(); 
+    }
+
+    std::vector<GPU_INFO> gpus = systemInfoService.getGpuInfo(); 
+
+    QString gpus_info_string = ""; 
+
+    for (int i = 0; i < gpus.size(); i++) {
+        gpus_info_string += gpus.at(i).display(); 
+    }
+
+    const QString MEMORY_STR = QString::fromStdString(systemInfoService.getMemoryInfo()); 
+
+    auto * systemFetchLabel = new QLabel(
+        "Hostname: " + HOSTNAME_STR + "\n" + 
+        "Kernel: " + KERNEL_NAME_STR + "\n" + 
+        "OS: " + OS_NAME_STR + "\n" + 
+        cpus_info_string + "\n" +
+        gpus_info_string  + "\n"
+        "Memory : " + MEMORY_STR
+    ); 
 
     QString os_tan_img_path; 
 
@@ -62,15 +89,15 @@ int main(int argc, char** argv)
     qDebug() << HOME_PATH + "/" + os_tan_img_path << Qt::endl;
 
     #ifdef __win32__
-        QPixmap image = QPixmap(    HOME_PATH + "\\" + os_tan_img_path);
+        auto image = QPixmap(    HOME_PATH + "\\" + os_tan_img_path);
     #else
-        QPixmap image = QPixmap(    HOME_PATH + "/" + os_tan_img_path);
+        auto image = QPixmap(    HOME_PATH + "/" + os_tan_img_path);
     #endif
 
-    QLabel* imgLabel = new QLabel();
+    auto* imgLabel = new QLabel();
     imgLabel->setPixmap(image); 
 
-    box->addWidget(label); 
+    box->addWidget(systemFetchLabel); 
     box->addWidget(imgLabel); 
 
     mainWindow->setCentralWidget(centralWidget);
