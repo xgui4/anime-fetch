@@ -87,5 +87,7 @@ CMakeLists.txt.user*
 ~*
 
 # bin/lib
-
 lib/hwinfo
+
+# CMake 19 presets
+MakeUserPresets.json
