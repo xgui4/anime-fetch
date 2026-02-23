@@ -12,8 +12,8 @@ if [ "$1" = "linux" ]; then
             rm -rf ~/.anime-fetch/; 
         fi      
         cp pkg/anime-fetch-linux.desktop ~/.local/share/applications/anime-fetch.desktop
-        sudo ln -s "$PWD"/build/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
-        sudo ln -s "$PWD"/build/cli/Anime-Fetch /bin/Anime-Fetch
+        sudo ln -s "$PWD"/publish/build/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
+        sudo ln -s "$PWD"/publish/build/cli/Anime-Fetch /bin/Anime-Fetch
         cp -r assets/ ~/.anime-fetch/
     fi
 fi
@@ -29,8 +29,8 @@ if [ "$1" = "freebsd" ]; then
             rm -rf ~/.anime-fetch/; 
         fi 
         cp pkg/anime-fetch-bsd.desktop ~/.local/share/applications/anime-fetch.desktop
-        sudo ln -s "$PWD"/build/cli/Anime-Fetch /usr/local/sbin/Anime-Fetch
-        sudo ln -s "$PWD"/build/gui/Anime-Fetch-GUI /usr/local/sbin/Anime-Fetch-GUI
+        sudo ln -s "$PWD"/build/publish/cli/Anime-Fetch /usr/local/sbin/Anime-Fetch
+        sudo ln -s "$PWD"/build/publish/gui/Anime-Fetch-GUI /usr/local/sbin/Anime-Fetch-GUI
         cp -r assets/ ~/.anime-fetch/
     fi
 else
