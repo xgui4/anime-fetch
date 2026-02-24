@@ -10,16 +10,22 @@ add_library(Anime-Fetch-Lib SHARED
     src/colors.hpp
     src/models/cpu_info.hpp
     src/models/gpu_info.hpp
+    src/models/battery_info.hpp
+    src/models/disk_info.hpp
+    src/models/gpu_info.hpp
+    src/models/mainboard_info.hpp
+    src/models/memory_info.hpp
+    src/models/os_info.hpp
     src/services/system_info_service.cpp
     src/services/system_info_service.h
     src/utils/cmdline_utils.cpp
     src/utils/cmdline_utils.h
     src/utils/utils.cpp
     src/utils/utils.hpp
-    src/config/app_config.cpp
-    src/config/app_config.h
-    src/config/cmd_args.h
-    src/config/cmd_args.cpp
+    src/configs/app_config.cpp
+    src/configs/app_config.h
+    src/configs/cmd_args.h
+    src/configs/cmd_args.cpp
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")

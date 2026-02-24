@@ -24,6 +24,20 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 
 - QT Widget 6 (for the GUI)
 
+## How to Build and run 
+
+```shell
+# 1.
+cmake --preset publish 
+
+# 2.
+cmake --build --preset publish
+
+# 3.
+./build/publish/cli/Anime-Fetch
+
+```
+
 ## Helper Scripts 
 
 > [!Note] right now they only support UNIX, coming later for Windows, macOS is not officialy supported since i do not own a Mac

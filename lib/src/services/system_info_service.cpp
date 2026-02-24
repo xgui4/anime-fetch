@@ -19,7 +19,25 @@
 #include <vector>
 
 SystemInfoService::SystemInfoService() {
-  os_type = this->getOsType();
+      #ifdef _WIN32
+      os_type = OS_TYPE::Windows; 
+    #elif __linux__
+      os_type = OS_TYPE::Linux;
+    #elif __FreeBSD__
+      os_type = OS_TYPE::BSD; 
+    #elif __NetBSD__ 
+      os_type = OS_TYPE::BSD; 
+    #elif __OpenBSD__ 
+      os_type = OS_TYPE::BSD; 
+    #elif __DragonflyBSD__ 
+      os_type =  OS_TYPE::BSD; 
+    #elif __APPLE__
+      os_type =  OS_TYPE::MacOS; 
+    #elif __unix__
+      os_type =  OS_TYPE::Unix; 
+    #else
+      os_type =  OS_TYPE::Other; 
+    #endif
 }
 
 SystemInfoService::~SystemInfoService() {
@@ -61,18 +79,18 @@ std::string SystemInfoService::getKernelName() const {
   return "Kernel : Unknown";
 }
 
-std::vector<CPU_INFO> SystemInfoService::getCpuInfo() const {
+std::vector<CPUInfo> SystemInfoService::getCpuInfo() const {
   #ifdef __linux__
     try {
       const auto cpus = hwinfo::getAllCPUs();
-      std::vector<CPU_INFO> cpus_info = std::vector<CPU_INFO>();  
+      auto cpus_info = std::vector<CPUInfo>();  
 
       for (int i = 0; i > cpus.size() - 1; i++) {
         if (cpus.at(i).modelName() != cpus.at(i+1).modelName())  {
-            const CPU_INFO cpu = {
-                cpus.at(i).vendor(),
-                cpus.at(i).modelName(),
-                cpus.at(i).numLogicalCores()
+            const CPUInfo cpu = {
+                .vendor_name = cpus.at(i).vendor(),
+                .model_name = cpus.at(i).modelName(),
+                .logicals_cores = cpus.at(i).numLogicalCores()
             };
             cpus_info.push_back(cpu); 
         }; 
@@ -93,21 +111,21 @@ std::vector<CPU_INFO> SystemInfoService::getCpuInfo() const {
     };
     return cpu; 
   #endif
-  return std::vector<CPU_INFO> {CPU_INFO { "Error", "Error", 1}};
+  return std::vector<CPUInfo> {CPUInfo { "Error", "Error", 1, 1}};
 }
 
-std::vector<GPU_INFO> SystemInfoService::getGpuInfo() const {
+std::vector<GPUInfo> SystemInfoService::getGpuInfo() const {
   #ifdef __linux__
     try {
       const auto gpus = hwinfo::getAllGPUs();
-      std::vector<GPU_INFO> gpus_info = std::vector<GPU_INFO>();  
+      auto gpus_info = std::vector<GPUInfo>();  
 
       for (int i = 0; i > gpus.size() - 1; i++) {
         if (gpus.at(i).name() != gpus.at(i+1).name())  {
-            const GPU_INFO gpu = {
-                gpus.at(i).vendor(),
-                gpus.at(i).name(),
-                std::to_string(gpus.at(i).memory_Bytes())
+            const GPUInfo gpu = {
+                .vendor_name = gpus.at(i).vendor(),
+                .model_name = gpus.at(i).name(),
+                .memory = std::to_string(gpus.at(i).memory_Bytes())
             };
             gpus_info.push_back(gpu); 
         }; 
@@ -118,7 +136,7 @@ std::vector<GPU_INFO> SystemInfoService::getGpuInfo() const {
       std::cout << create_error_str_from_runtime_error(error) << std::endl; 
     }
   #endif
-  return std::vector<GPU_INFO> {GPU_INFO { "Error", "Error", "Error"}};
+  return std::vector<GPUInfo> {GPUInfo { "Error", "Error", "Error"}};
 }
 
 std::string SystemInfoService::getMemoryInfo() const {
@@ -163,6 +181,9 @@ std::string SystemInfoService::getWindowManager() const {
 }
 
 std::string SystemInfoService::getDesktopEnvironnement() const {
+  #ifdef __unix__
+    return exec("echo $XDG_CURRENT_DESKTOP"); 
+  #endif
   throw std::runtime_error("Not Implemented Yet");
 }
 
@@ -175,23 +196,5 @@ std::string SystemInfoService::getProcessesCountRunning() const {
 }
 
 OS_TYPE SystemInfoService::getOsType() const {
-    #ifdef _WIN32
-      return OS_TYPE::Windows; 
-    #elif __linux__
-      return OS_TYPE::Linux;
-    #elif __FreeBSD__
-      return OS_TYPE::BSD; 
-    #elif __NetBSD__ 
-      return OS_TYPE::BSD; 
-    #elif __OpenBSD__ 
-      return OS_TYPE::BSD; 
-    #elif __DragonflyBSD__ 
-      return OS_TYPE::BSD; 
-    #elif __APPLE__
-      return OS_TYPE::MacOS; 
-    #elif __unix__
-      return OS_TYPE::Unix; 
-    #else
-      return OS_TYPE::Other; 
-    #endif
+  return os_type; 
 }

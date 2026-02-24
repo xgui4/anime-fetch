@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 
     const QString OS_NAME_STR = systemInfo.prettyProductName(); 
-    std::vector<CPU_INFO> cpus = systemInfoService.getCpuInfo(); 
+    std::vector<CPUInfo> cpus = systemInfoService.getCpuInfo(); 
 
     QString cpus_info_string = ""; 
 
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
         cpus_info_string += cpus.at(i).display(); 
     }
 
-    std::vector<GPU_INFO> gpus = systemInfoService.getGpuInfo(); 
+    std::vector<GPUInfo> gpus = systemInfoService.getGpuInfo(); 
 
     QString gpus_info_string = ""; 
 

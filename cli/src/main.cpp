@@ -1,5 +1,5 @@
-#include "config/app_config.h"
-#include "config/cmd_args.h"
+#include "configs/app_config.h"
+#include "configs/cmd_args.h"
 #include "os_type.hpp"
 #include "services/system_info_service.h"
 #include "utils/cmdline_utils.h"
@@ -55,13 +55,13 @@ int main(int argc, char *argv[]) {
 
       auto cpus_info = systemInfo.getCpuInfo(); 
 
-      for (CPU_INFO cpu_info : cpus_info) {
+      for (CPUInfo cpu_info : cpus_info) {
           cout << cpu_info.display() << endl; 
       }
 
       auto gpus_info = systemInfo.getGpuInfo(); 
 
-      for (GPU_INFO gpu_info : gpus_info) {
+      for (GPUInfo gpu_info : gpus_info) {
         cout << gpu_info.display() << endl; 
       }
 

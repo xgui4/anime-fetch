@@ -15,8 +15,8 @@ public:
   std::string getSystemInfo() const;
   std::string getOperatingSystemInfo() const;
   std::string getKernelName() const;
-  std::vector<CPU_INFO> getCpuInfo() const;
-  std::vector<GPU_INFO> getGpuInfo() const;
+  std::vector<CPUInfo> getCpuInfo() const;
+  std::vector<GPUInfo> getGpuInfo() const;
   std::string getMemoryInfo() const;
   std::string getSwapMemoryInfo() const;
   std::string getStorageInfo() const;
