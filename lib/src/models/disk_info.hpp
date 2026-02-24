@@ -1,3 +1,5 @@
+#pragma once
+
 #include <any>
 #include <string>
 
@@ -9,7 +11,7 @@ struct DiskInfo {
     std::string free_size;
     std::any volumes;  //@TODO : TBD 
 
-    inline std::string display() {
+    std::string display() const {
         return "Disk : " + 
         vendor_name + " " +
         model_name + " " + 
@@ -18,7 +20,7 @@ struct DiskInfo {
         //@todo the volumes
     }
 
-    inline std::string display_minimal() {
+    std::string display_minimal() const {
         return "Disk : " + 
         vendor_name + " " +
         model_name + " " + 

@@ -11,7 +11,8 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - GUI
     - QT 6
 - CLI
-    - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
+    - [lfreist/hwinfo](https://github. com/lfreist/hwinfo)
+        - License : MIT
     - Curses
 - Global
     - Bash/Shell Script for UNIX and bat file for Windows

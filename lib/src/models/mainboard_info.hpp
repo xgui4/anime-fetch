@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 struct MainboardInfo {
@@ -7,7 +9,7 @@ struct MainboardInfo {
     std::string serial;
     std::string bios; 
 
-    inline std::string display() {
+    std::string display() const {
         return "Motherboard : " +
         vendor_name + " " +
         model_name + " " +
@@ -16,7 +18,7 @@ struct MainboardInfo {
         bios;  
     } 
 
-    inline std::string display_minimal() {
+    std::string display_minimal() const {
         return "Motherboard : " +
         vendor_name + " " +
         model_name + " " +

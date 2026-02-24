@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 struct CPUInfo {
@@ -7,7 +9,7 @@ struct CPUInfo {
     int logicals_cores; 
     int cache_size; 
 
-    inline std::string display() {
+    std::string display() const {
         return "CPU : " + 
         vendor_name + " " + 
         model_name + 
@@ -16,8 +18,7 @@ struct CPUInfo {
         + "frequency: " + std::to_string(frequency) + "ghz)";  
     } 
 
-
-    inline std::string display_minimal() {
+    std::string display_minimal() const {
         return "CPU : " + 
         vendor_name + " " + 
         model_name + 

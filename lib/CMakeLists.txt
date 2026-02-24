@@ -16,6 +16,8 @@ add_library(Anime-Fetch-Lib SHARED
     src/models/mainboard_info.hpp
     src/models/memory_info.hpp
     src/models/os_info.hpp
+    src/models/kernel_info.hpp
+    src/models/location.hpp
     src/services/system_info_service.cpp
     src/services/system_info_service.h
     src/utils/cmdline_utils.cpp

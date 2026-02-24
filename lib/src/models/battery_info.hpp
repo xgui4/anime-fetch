@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 struct BatteryInfo {
@@ -7,14 +9,14 @@ struct BatteryInfo {
     std::string capacity; 
     std::string charging;
 
-    inline std::string display_minimal() {
+    std::string display_minimal() const {
         return "Battery : " + 
         vendor_name + " " + 
         model_name  + " " + 
         capacity;
     } 
 
-    inline std::string display() {
+    std::string display() const {
         return "Battery : " + 
         vendor_name + " "  + 
         model_name + " " + 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>
 
 struct GPUInfo {
@@ -5,7 +7,7 @@ struct GPUInfo {
     std::string model_name;
     std::string memory; 
 
-    inline std::string display() {
+    std::string display() const {
         return "GPU : " +
         vendor_name + " " +
         model_name + 
