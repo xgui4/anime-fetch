@@ -11,8 +11,8 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 - GUI
     - QT 6
 - CLI
-    - [lfreist/hwinfo](https://github. com/lfreist/hwinfo)
-        - License : MIT
+    - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
+        - License : [MIT](LICENSE.lib.txt)
     - Curses
 - Global
     - Bash/Shell Script for UNIX and bat file for Windows
@@ -28,6 +28,10 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 ## How to Build and run 
 
 ```shell
+
+# 0. If the library not installed yet
+sudo ./install_library.sh
+
 # 1.
 cmake --preset publish 
 
