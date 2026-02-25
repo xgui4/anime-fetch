@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Define the shared library target
-add_library(Anime-Fetch-Lib SHARED 
+add_library(Anime-Fetch-Lib STATIC 
     src/os_type.hpp
     src/colors.hpp
     src/models/cpu_info.hpp

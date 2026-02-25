@@ -13,7 +13,6 @@ add_executable(Anime-Fetch
     src/main.cpp
 )
 
-# Link the library
 if (WIN32)
     add_definitions(-DWIN32)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -21,11 +20,3 @@ if (WIN32)
 else()
     target_link_libraries(Anime-Fetch PRIVATE Anime-Fetch-Lib ${CURSES_LIBRARIES})
 endif()
-
-set_target_properties(Anime-Fetch
- PROPERTIES
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-    MACOSX_BUNDLE TRUE
-    WIN32_EXECUTABLE TRUE
-)
