@@ -2,8 +2,6 @@
 
 set -e
 
-mkdir -p lib
-
 if [ "$("whoami")" = "root" ]; then
     git clone https://github.com/lfreist/hwinfo lib/hwinfo && cd lib/hwinfo
     mkdir build

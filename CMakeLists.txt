@@ -18,4 +18,4 @@ add_subdirectory(lib)
 
 # Build the cli and gui interface
 add_subdirectory(cli)
-add_subdirectory(gui)
+# add_subdirectory(gui)

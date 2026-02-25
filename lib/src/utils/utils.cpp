@@ -19,8 +19,11 @@ string exec(const char *cmd, const char *args[], const int argc) {
 
   string result = "";
 
-  FILE *pipe = popen(full_cmd, "r");
-
+  #ifdef __linux__
+    FILE *pipe = popen(full_cmd, "r");
+  #elif _WIN32
+    FILE *pipe = _popen(full_cmd, "r");
+  #endif
   if (!pipe) {
     return "Erreur";
   }
@@ -29,7 +32,11 @@ string exec(const char *cmd, const char *args[], const int argc) {
     result += buffer;
   }
 
+#ifdef __linux__
   pclose(pipe);
+#elif _WIN32
+  _pclose(pipe);
+#endif
 
   return result;
 }
