@@ -5,6 +5,6 @@ Name=Anime Fetch (GUI)
 Comment=A noefetch-inspired utility that fetch you system info with a [OS-Tan]
 Path=/bin
 Exec=Anime-Fetch-GUI
-Icon=/home/xgui4/.anime-fetch/icons/appicon.png
+Icon=$HOME/.anime-fetch/icons/appicon.png
 Terminal=false
 GenericName[fr_CA.UTF-8]=A noefetch-inspired utility that fetch you system info with a OS-Tan

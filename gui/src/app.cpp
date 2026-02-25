@@ -2,6 +2,7 @@
 #include <QtWidgets/QApplication>
 #include <qboxlayout.h>
 #include <qdebug.h>
+#include <qicon.h>
 #include <qimage.h>
 #include <qlabel.h>
 #include <qmainwindow.h>
@@ -108,7 +109,8 @@ int main(int argc, char** argv)
 
     mainWindow->setCentralWidget(centralWidget);
 
-    mainWindow->setWindowTitle("Anime Fetch");
+    mainWindow->setWindowTitle("Anime Fetch GUI");
+    mainWindow->setWindowIcon(QIcon("$HOME/.anime-fetch/icons/appicon.png"));
     mainWindow->show();
 
     return app.exec();
