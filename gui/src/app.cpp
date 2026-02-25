@@ -17,6 +17,7 @@
 #include <QDir>
 #include <QDebug>
 #include <vector>
+#include "os_type.hpp"
 #include "services/system_info_service.h" 
 
 int main(int argc, char** argv)
@@ -70,19 +71,24 @@ int main(int argc, char** argv)
 
     // QString logo_img_path; 
 
-    #ifdef __win32__
-        os_tan_img_path = ".anime-fetch/images/os-tan/windows/win11-os-tan-temp.png"; 
-    #elif __apple__
+    if (systemInfoService.getOsType() == OS_TYPE::Windows) {
+        os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\win11-os-tan-temp.png"; 
+    }
+    else if (systemInfoService.getOsType() == OS_TYPE::MacOS) {
         os_tan_img_path =  ".anime-fetch/images/os-tan/mac/system-tan.png"; 
-    #elif __linux__
+    }
+    else if (systemInfoService.getOsType() == OS_TYPE::Linux) {
         os_tan_img_path = ".anime-fetch/images/os-tan/linux/arch-1-tan.png";
-    #elif __FreeBSD__
-        os_tan_img_path = ".anime-fetch/images/os-tan/others/free-bsd-tan.png";
-    #elif __unix__
+    }
+    else if (systemInfoService.getOsType() == OS_TYPE::BSD) {
+        os_tan_img_path = ".anime-fetch/images/os-tan/bsd/free-bsd-tan.png";
+    }
+    else if (systemInfoService.getOsType() == OS_TYPE::Unix) {
         os_tan_img_path = ".anime-fetch/images/os-tan/others/solaris-tan.png";
-    #else
-        os_tan_img_path = ".anime-fetch/images/os-tan/windows/os-tan7.png"; 
-    #endif
+    }
+    else {
+        os_tan_img_path = ".anime-fetch/images/os-tan/windows/windows7-tan.png"; 
+    }
 
     const QString HOME_PATH = QDir::homePath(); 
 

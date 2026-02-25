@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
       }
 
       if (systemInfo.getOsType() == OS_TYPE::Windows) {
-        system("kitty +icat ~/.anime-fetch/images/os-tan/windows/win11-os-tan-temp.png"); 
+        system("kitty +icat ~/.anime-fetch/images/os-tan/windows/win11-os-tan.png"); 
       }
 
       if (systemInfo.getOsType() == OS_TYPE::MacOS) {
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
       }
 
       if (systemInfo.getOsType() == OS_TYPE::BSD) {
-        system("kitty +icat ~/.anime-fetch/images/os-tan/others/free-bsd-tan.png");
+        system("kitty +icat ~/.anime-fetch/images/os-tan/bsd/free-bsd-tan.png");
       }
 
       if (systemInfo.getOsType() == OS_TYPE::Unix) {
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
       }
 
       if (systemInfo.getOsType() == OS_TYPE::Other) {
-        system("kitty +icat ~/.anime-fetch/images/os-tan/windows/os-tan7.png"); 
+        system("kitty +icat ~/.anime-fetch/images/os-tan/windows/windows7-tan.png"); 
       }
     }
     catch (std::runtime_error error) {

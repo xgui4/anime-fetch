@@ -91,7 +91,7 @@ CMakeLists.txt.user*
 lib/hwinfo
 
 # CMake 19 presets
-MakeUserPresets.json
+CMakeUserPresets.json
 
 # Combined Visual Studio and CMake .gitignore
 # For full details, see: 

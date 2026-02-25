@@ -18,4 +18,7 @@ add_subdirectory(lib)
 
 # Build the cli and gui interface
 add_subdirectory(cli)
-# add_subdirectory(gui)
+
+if(NOT WIN32) # Right now only the CLI is supported on Windows
+    add_subdirectory(gui)
+endif()

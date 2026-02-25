@@ -8,7 +8,7 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 
 ## Dependancy/Library needed
 
-- GUI
+- GUI (Unix Like system only for now)
     - QT 6
 - CLI
     - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
@@ -27,6 +27,7 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 
 ## How to Build and run 
 
+## Unix Like System
 ```shell
 
 # 0. If the library not installed yet
@@ -40,6 +41,13 @@ cmake --build --preset publish
 
 # 3.
 ./build/publish/cli/Anime-Fetch
+
+```
+## Windows 
+
+```bash
+
+# Guide Coming soon
 
 ```
 

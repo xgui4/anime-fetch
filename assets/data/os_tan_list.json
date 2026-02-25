@@ -1,0 +1,49 @@
+{
+    "Windows-Tan" : {
+        "NT-Tan" : "nt-tan.jpg",
+        "Windows 11-Tan" : "windows11-tan.png",
+        "Windows 11 Alt-Tan" : "windows11-tan-alt.webp",
+        "Windows 10-Tan" : "windows10-tan.png",
+        "Windows 8-Tan" : "windows8-tan.png",
+        "Windows 7-Tan" : "windows7-tan.jpg",
+        "Vista-Tan" : "vista-tan.jpg",
+        "longhorn" : "longhorn-tan.jpg",
+        "Odysee-Tan" : "odyssey-tan.gif",
+        "Neptune-Tan" : "neptune-tan.git",
+        "Me-Tan" : "me-tan.jpg",
+        "Server 2008-Tan" : "server-2008-tan.jpg",
+        "Server 2003-Tan" : "server-2003-tan.jpg",
+        "Win2K-Tan" : "win2k-tan.jpg",
+        "Windows 98-SE-Tan" : "win98-tan.jpg", 
+        "Windows 98-Tan" : "win98SE-tan.jpg",
+        "Windows 97-Tan" : "win97-tan.jpg",
+        "Windows 95-Tan": "win95-tan.jpg",  
+        "Windows 3-Tan" : "windows-3-tan.avi",
+        "Windows 2-Tan" : "windows-2-tan.avi",
+        "Windows 1-Tan" : "windows-1-tan.avi"
+    }, 
+
+    "Apple" : {
+        "osx-tan" : "osx-tan.png",
+        "system-tan" : "system-tan.png"
+    }, 
+
+    "Linux" : {
+       "arch-1-tan" : "arch-1-tan.png", 
+       "black-arch-tan" : "black-arch-tan.png", 
+       "debian-tan" : "debian-tan.png",
+       "gentoo-tan" : "gentoo-tan.png",
+       "linux-tan" : "linux-tan.png",
+       "opensuse-tan" : "opensuse-tan.png",
+       "redhat-tan" : "redhat-tan.png"
+    },
+
+    "BSD" : {
+        "freebsd-tan" : "fre-bsd-tan.png"
+    },
+
+    "Others" :{
+        "solaris-tan" : "solaris-tan.png"
+    }
+
+}
