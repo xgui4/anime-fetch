@@ -118,6 +118,7 @@ ipch/
 *.pdb
 *.ilk
 *.pch
+**out/
 
 ### CMake ###
 CMakeCache.txt

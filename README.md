@@ -1,6 +1,6 @@
 # Anime-Fetch
 
-<img src="assets/icons/appicon.png" alt="Anime-Fetch Logo" width="75" height="75">
+<img src="assets/icons/new-appicon.png" alt="New Anime-Fetch Logo" width="75" height="75">
 
 A noefetch-inspired utility that fetch you system info with a [OS-Tan](https://en.wikipedia.org/wiki/OS-tan)
 
@@ -47,7 +47,7 @@ cmake --build --preset publish
 
 ```bash
 
-# Guide Coming soon
+# Guide Coming soon (Windows build are a little more complicated)
 
 ```
 

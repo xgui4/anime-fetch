@@ -1,3 +1,3 @@
 #include <string>
 
-const std::string VERSION = "0.0.0";
+const std::string VERSION = "0.0.0.0";

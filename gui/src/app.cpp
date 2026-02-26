@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     // QString logo_img_path; 
 
     if (systemInfoService.getOsType() == OS_TYPE::Windows) {
-        os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\win11-os-tan-temp.png"; 
+        os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"; 
     }
     else if (systemInfoService.getOsType() == OS_TYPE::MacOS) {
         os_tan_img_path =  ".anime-fetch/images/os-tan/mac/system-tan.png"; 
@@ -95,7 +95,7 @@ int main(int argc, char** argv)
 
     qDebug() << HOME_PATH + "/" + os_tan_img_path << Qt::endl;
 
-    #ifdef __win32__
+    #ifdef WIN32
         auto image = QPixmap(    HOME_PATH + "\\" + os_tan_img_path);
     #else
         auto image = QPixmap(    HOME_PATH + "/" + os_tan_img_path);
@@ -103,6 +103,7 @@ int main(int argc, char** argv)
 
     auto* imgLabel = new QLabel();
     imgLabel->setPixmap(image); 
+    imgLabel->setScaledContents(true);
 
     box->addWidget(systemFetchLabel); 
     box->addWidget(imgLabel); 
@@ -110,7 +111,7 @@ int main(int argc, char** argv)
     mainWindow->setCentralWidget(centralWidget);
 
     mainWindow->setWindowTitle("Anime Fetch GUI");
-    mainWindow->setWindowIcon(QIcon("$HOME/.anime-fetch/icons/appicon.png"));
+    mainWindow->setWindowIcon(QIcon(HOME_PATH + "/.anime-fetch/icons/appicon.png"));
     mainWindow->show();
 
     return app.exec();
