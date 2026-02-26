@@ -23,11 +23,14 @@
 
 int main(int argc, char** argv)
 {
+	int height = 500; 
+    int width = 500; 
+
     QApplication app(argc, argv);
     auto * mainWindow = new QMainWindow();
 
-    mainWindow->setMinimumHeight(500); 
-    mainWindow->setMinimumWidth(500); 
+    mainWindow->setMinimumHeight(height); 
+    mainWindow->setMinimumWidth(width); 
 
     auto *centralWidget = new QWidget(mainWindow);
 
@@ -74,6 +77,7 @@ int main(int argc, char** argv)
 
     if (systemInfoService.getOsType() == OS_TYPE::Windows) {
         os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"; 
+        qDebug() << systemInfo.productVersion() << Qt::endl;
     }
     else if (systemInfoService.getOsType() == OS_TYPE::MacOS) {
         os_tan_img_path =  ".anime-fetch/images/os-tan/mac/system-tan.png"; 
@@ -93,13 +97,8 @@ int main(int argc, char** argv)
 
     const QString HOME_PATH = QDir::homePath(); 
 
-    qDebug() << HOME_PATH + "/" + os_tan_img_path << Qt::endl;
-
-    #ifdef WIN32
-        auto image = QPixmap(    HOME_PATH + "\\" + os_tan_img_path);
-    #else
-        auto image = QPixmap(    HOME_PATH + "/" + os_tan_img_path);
-    #endif
+    auto image = QPixmap(HOME_PATH + "/" + os_tan_img_path);
+	qDebug() << HOME_PATH + "/" + os_tan_img_path << Qt::endl;
 
     auto* imgLabel = new QLabel();
     imgLabel->setPixmap(image); 

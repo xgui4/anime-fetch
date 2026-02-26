@@ -37,8 +37,8 @@ InfoAfterFile=..\code-of-conduct.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputDir=installer
-OutputBaseFilename=anime-fetch-setup
+OutputDir=installers
+OutputBaseFilename=anime-fetch-gui-setup
 SolidCompression=yes
 WizardStyle=modern dark polar
 

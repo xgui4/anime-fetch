@@ -38,7 +38,7 @@ InfoAfterFile=..\code-of-conduct.md
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=installers
-OutputBaseFilename=anime-fetch-setup 
+OutputBaseFilename=anime-fetch-cli-setup 
 SolidCompression=yes
 WizardStyle=modern dark polar
 

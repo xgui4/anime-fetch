@@ -1,11 +1,11 @@
 #include "cmd_args.h"
-#include "app_config.h"
+#include "lib_config.h"
 #include <iostream>
 #include "../utils/utils.hpp"
 #include "../utils/cmdline_utils.h"
 #include "../colors.hpp"
 
-class AppConfig;
+class LibConfig;
 
 using std::cout;
 using std::endl;
@@ -15,7 +15,7 @@ string get_app_version_str(string app_title, string version) {
   return app_title + " " + "Version " + version;
 }
 
-string get_about_app_str(string app_title, AppConfig &app_config, string about_info) {
+string get_about_app_str(string app_title, LibConfig &app_config, string about_info) {
     return "A neofetch-inspired utility that fetch you system info with a \"OS-Tan\". \n \n + "
     "This is a work in progress experimental cross-platfrom version of \"WPFetch.\" \n The source is availaible at " + create_link(app_config.REPO_LINK_LABEL, app_config.REPO_LINK);
 }
@@ -37,7 +37,7 @@ int open_gui(string path, const char *args[]) {
   return 0;
 }
 
-string get_help_info_str(string app_name, AppConfig& app_config) {
+string get_help_info_str(string app_name, LibConfig& app_config) {
 
   string help_info_str = ""; 
 

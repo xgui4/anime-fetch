@@ -6,28 +6,28 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Define the shared library target
 add_library(Anime-Fetch-Lib STATIC 
-    src/os_type.hpp
-    src/colors.hpp
-    src/models/cpu_info.hpp
-    src/models/gpu_info.hpp
-    src/models/battery_info.hpp
-    src/models/disk_info.hpp
-    src/models/gpu_info.hpp
-    src/models/mainboard_info.hpp
-    src/models/memory_info.hpp
-    src/models/os_info.hpp
-    src/models/kernel_info.hpp
-    src/models/location.hpp
-    src/services/system_info_service.cpp
-    src/services/system_info_service.h
-    src/utils/cmdline_utils.cpp
-    src/utils/cmdline_utils.h
-    src/utils/utils.cpp
-    src/utils/utils.hpp
-    src/configs/app_config.cpp
-    src/configs/app_config.h
-    src/configs/cmd_args.h
-    src/configs/cmd_args.cpp
+    "src/os_type.hpp"
+    "src/colors.hpp"
+    "src/models/cpu_info.hpp"
+    "src/models/gpu_info.hpp"
+    "src/models/battery_info.hpp"
+    "src/models/disk_info.hpp"
+    "src/models/gpu_info.hpp"
+    "src/models/mainboard_info.hpp"
+    "src/models/memory_info.hpp"
+    "src/models/os_info.hpp"
+    "src/models/kernel_info.hpp"
+    "src/models/location.hpp"
+    "src/services/system_info_service.cpp"
+    "src/services/system_info_service.h"
+    "src/utils/cmdline_utils.cpp"
+    "src/utils/cmdline_utils.h"
+    "src/utils/utils.cpp"
+    "src/utils/utils.hpp"
+    "src/configs/lib_config.cpp"
+    "src/configs/lib_config.h"
+    "src/configs/cmd_args.h"
+    "src/configs/cmd_args.cpp"
 )
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")

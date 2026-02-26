@@ -1,4 +1,4 @@
-#include "configs/app_config.h"
+#include "configs/lib_config.h"
 #include "configs/cmd_args.h"
 #include "os_type.hpp"
 #include "services/system_info_service.h"
@@ -14,16 +14,16 @@ using std::endl;
 using std::string;
 
 int main(int argc, char *argv[]) {
-  AppConfig appConfig;
+  LibConfig appConfig;
 
   if (argc > 1) {
     const string colored_title =
-        create_colored_str(Color::ForegroundYellow, appConfig.APP_NAME);
+        create_colored_str(Color::ForegroundYellow, appConfig.LIBRARY_NAME);
 
     const string argument = argv[1];
 
     if (argument == "--version" || argument == "-v") {
-      cout << get_app_version_str(colored_title, appConfig.VERSION) << endl; 
+      cout << get_app_version_str(colored_title, appConfig.APP_VERSION) << endl; 
     }
 
     else if (argument == "--about" || argument == "-a") {
@@ -65,10 +65,7 @@ int main(int argc, char *argv[]) {
         cout << gpu_info.display() << endl; 
       }
 
-      if (systemInfo.getOsType() == OS_TYPE::Windows) {
-        system("kitty +icat ~/.anime-fetch/images/os-tan/windows/win11-os-tan.png"); 
-      }
-
+      #ifdef __unix__ 
       if (systemInfo.getOsType() == OS_TYPE::MacOS) {
         system("kitty +icat ~/.anime-fetch/images/os-tan/mac/system-tan.png"); 
       }
@@ -88,6 +85,9 @@ int main(int argc, char *argv[]) {
       if (systemInfo.getOsType() == OS_TYPE::Other) {
         system("kitty +icat ~/.anime-fetch/images/os-tan/windows/windows7-tan.png"); 
       }
+	  #elif WIN32
+	  system("chafa C:\\Users\\xgui4-dev\\.anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"); 
+      #endif
     }
     catch (std::runtime_error error) {
       cout << create_error_str_from_runtime_error(error) << endl;; 
