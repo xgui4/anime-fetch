@@ -2,7 +2,7 @@
 
 if [ "$1" = "compile" ]; then
 
-cmake --build --preset publish
+cmake --build --preset MinSizeRel
 
 elif [ "$1" = "linux" ]; then
     if [ "$2" = "-r"  ] || [ "$2" = "--remove" ]; then
@@ -16,8 +16,8 @@ elif [ "$1" = "linux" ]; then
             rm -rf ~/.anime-fetch/; 
         fi      
         cp pkg/anime-fetch-linux.desktop ~/.local/share/applications/anime-fetch.desktop
-        sudo ln -s "$PWD"/build/publish/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
-        sudo ln -s "$PWD"/build/publish/cli/Anime-Fetch /bin/Anime-Fetch
+        sudo ln -s "$PWD"/build/MinSizeRel/gui/Anime-Fetch-GUI /bin/Anime-Fetch-GUI
+        sudo ln -s "$PWD"/build/MinSizeRel/cli/Anime-Fetch /bin/Anime-Fetch
         cp -r assets/ ~/.anime-fetch/
     fi
 elif [ "$1" = "freebsd" ]; then
@@ -32,8 +32,8 @@ elif [ "$1" = "freebsd" ]; then
             rm -rf ~/.anime-fetch/; 
         fi 
         cp pkg/anime-fetch-bsd.desktop ~/.local/share/applications/anime-fetch.desktop
-        sudo ln -s "$PWD"/build/publish/cli/Anime-Fetch /usr/local/sbin/Anime-Fetch
-        sudo ln -s "$PWD"/build/publish/gui/Anime-Fetch-GUI /usr/local/sbin/Anime-Fetch-GUI
+        sudo ln -s "$PWD"/build/MinSizeRel/cli/Anime-Fetch /usr/local/sbin/Anime-Fetch
+        sudo ln -s "$PWD"/build//gui/Anime-Fetch-GUI /usr/local/sbin/Anime-Fetch-GUI
         cp -r assets/ ~/.anime-fetch/
     fi
 else

@@ -1,0 +1,36 @@
+// Manual definition so we don't need resource.h
+#define IDI_ICON1 101
+
+// Version Information
+1 VERSIONINFO
+	FILEVERSION 0,0, 0, 0 
+	PRODUCTVERSION 0, 0, 0, 0 
+	FILEFLAGSMASK 0x3fL 
+	FILEFLAGS 0x0L 
+	FILEOS 0x40004L 
+	FILETYPE 0x1L 
+
+	// VFT_APP
+	FILESUBTYPE 0x0L 
+	BEGIN BLOCK "StringFileInfo" 
+		BEGIN BLOCK "040904b0"		
+			// US English, Unicode
+			BEGIN 
+				VALUE "CompanyName", "Xgui4" 
+				VALUE "FileDescription", "A neofetch-inspired utility that fetch you system info with a OS-Tan" 
+				VALUE "FileVersion", "0.0.0.0"
+				VALUE "InternalName", "Anime-Fetch-GUI" 
+				VALUE "LegalCopyright", "Copyleft (c) 2026" 
+				VALUE "OriginalFilename", "Anime-Fetch-GUI.exe"
+				VALUE "ProductName", "Anime Fetch GUI" 
+				VALUE "ProductVersion", "0.0.0.0" 
+			END 
+		END 
+		BLOCK "VarFileInfo" 
+		BEGIN 
+			VALUE "Translation", 0x409, 1200 
+		END
+	END
+
+// Icon
+IDI_ICON1 ICON "appicon.ico"
