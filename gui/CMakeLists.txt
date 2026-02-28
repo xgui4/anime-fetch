@@ -9,10 +9,17 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 qt_standard_project_setup()
 
-qt_add_executable(Anime-Fetch-GUI
-    "src/app.cpp"
-    "src/configs/gui_config.cpp"
-    "app.rc"
-)
+if(WIN32) 
+    qt_add_executable(Anime-Fetch-GUI
+        "src/app.cpp"
+        "src/configs/gui_config.cpp"
+        "app.rc"
+    )
+else()
+    qt_add_executable(Anime-Fetch-GUI
+       "src/app.cpp"
+       "src/configs/gui_config.cpp"
+    )
+endif()
 
 target_link_libraries(Anime-Fetch-GUI PRIVATE Anime-Fetch-Lib Qt${QT_VERSION_MAJOR}::Widgets)

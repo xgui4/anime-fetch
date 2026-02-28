@@ -33,6 +33,8 @@ add_library(Anime-Fetch-Lib STATIC
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(lfreist-hwinfo_DIR "/usr/local/lib/cmake/hwinfo")
     find_package(lfreist-hwinfo REQUIRED PATHS ${lfreist-hwinfo_DIR} NO_DEFAULT_PATH)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    find_package(lfreist-hwinfo CONFIG REQUIRED)
 endif()
 
 target_include_directories(Anime-Fetch-Lib PUBLIC 
@@ -41,4 +43,6 @@ target_include_directories(Anime-Fetch-Lib PUBLIC
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+        target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
 endif()
