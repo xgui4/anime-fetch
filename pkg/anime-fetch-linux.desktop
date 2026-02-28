@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Anime Fetch (GUI)
+Comment=A noefetch-inspired utility that fetch you system info with a [OS-Tan]
+Path=/bin
+Exec=Anime-Fetch-GUI
+Icon=$HOME/.anime-fetch/icons/appicon.png
+Terminal=false
+GenericName[fr_CA.UTF-8]=A noefetch-inspired utility that fetch you system info with a OS-Tan
