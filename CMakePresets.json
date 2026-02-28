@@ -31,7 +31,7 @@
       },
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "C:/Users/Xgui4-Dev/develop/anime-fetch/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_CXX_COMPILER": "cl"
       }
     },
@@ -113,7 +113,7 @@
   ],
   "vendor": {
     "qt-project.org/Presets": {
-      "checksum": "JWJdIMwgG7JEVzUNVOhyxQRfj6w="
+      "checksum": "xp9SUohMMOLjfHos+v3CTa+Na6A="
     }
   }
 }
