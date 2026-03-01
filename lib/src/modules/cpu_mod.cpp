@@ -1,5 +1,7 @@
 #include "cpu_mod.h"
+#ifdef __linux
 #include <hwinfo/cpu.h>
+#endif
 #include <iostream>
 #include <stdexcept>
 #include "../utils/cmdline_utils.h"
