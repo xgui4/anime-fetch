@@ -1,5 +1,4 @@
 #include "cpu_mod.h"
-#import "cpu_mod.h"
 
 CPUMod::CPUMod() {
 	this->cpus = getCPUInfo(); 
@@ -12,7 +11,7 @@ CPUMod::~CPUMod() {
 std::string CPUMod::display() const {
 	std::string cpu_info_string = "";
 	for (CPUInfo cpu : this->cpus) {
-		cpu_info_string += cpus.diplay() + "\n";
+		cpu_info_string += cpu.display() + "\n";
 	}
 	return cpu_info_string;
 }
@@ -20,13 +19,14 @@ std::string CPUMod::display() const {
 std::string CPUMod::displayMinimal() const {
 	std::string cpu_info_string = ""; 
 	for (CPUInfo cpu : this->cpus) {
-		cpu_info_string += cpus.diplay_minimal() + "\n"; 
+		cpu_info_string += cpu.displayMinimal() + "\n"; 
 	}
 	return cpu_info_string; 
 }
 
 std::string CPUMod::displayFeatures() const {
-	throw std::runtime_error("Not Implemented Yet!);
+	// throw std::runtime_error("Not Implemented Yet!");
+	return "NOT IMPLEMENTED YET"; 
 }
 
 // private

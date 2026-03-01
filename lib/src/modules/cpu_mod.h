@@ -2,6 +2,7 @@
 
 #include "../models/cpu_info.hpp" 
 #include <string>
+#include <vector>
 
 class CPUMod {
     public:
