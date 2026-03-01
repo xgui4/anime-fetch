@@ -1,4 +1,8 @@
 #include "cpu_mod.h"
+#include <hwinfo/cpu.h>
+#include <iostream>
+#include <stdexcept>
+#include "../utils/cmdline_utils.h"
 
 CPUMod::CPUMod() {
 	this->cpus = getCPUInfo(); 
