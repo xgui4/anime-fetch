@@ -1,14 +1,7 @@
 #pragma once
+#include "os_tan_familiy.hpp"
 
 #include <string>
-
-enum class OSTanFamily {
-    Windows,
-    Apple,
-    MacOS,
-    BSD,
-    Linux
-}; 
 
 struct OSTan {
     std::string name;

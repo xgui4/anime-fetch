@@ -18,7 +18,8 @@ add_library(Anime-Fetch-Lib STATIC
     "src/models/os_info.hpp"
     "src/models/kernel_info.hpp"
     "src/models/location.hpp"
-    "src/models/image_info.hpp"
+    "src/models/image.hpp"
+    "src/models/os_tan_family.hpp"
     "src/models/os_tan.hpp"
     "src/models/os_info.hpp"
     "src/modules/cpu_mod.cpp"
@@ -65,5 +66,5 @@ target_include_directories(Anime-Fetch-Lib PUBLIC
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-        target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
+    target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
 endif()

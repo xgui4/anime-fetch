@@ -81,8 +81,12 @@ int main(int argc, char** argv)
     // QString logo_img_path; 
 
     if (systemInfoService.getOsType() == OS_TYPE::Windows) {
-        os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"; 
-        qDebug() << systemInfo.productVersion() << Qt::endl;
+        if (systemInfo.productVersion() == "10") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows10-tan.png"; 
+        }
+		if (systemInfo.productVersion() == "11") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png";
+		}
     }
     else if (systemInfoService.getOsType() == OS_TYPE::MacOS) {
         os_tan_img_path =  ".anime-fetch/images/os-tan/mac/system-tan.png"; 

@@ -12,13 +12,15 @@ qt_standard_project_setup()
 if(WIN32) 
     qt_add_executable(Anime-Fetch-GUI
         "src/app.cpp"
-        "src/configs/gui_config.cpp"
+        "src/configs/app_config.h"
+        "src/configs/app_config.cpp"
         "app.rc"
     )
 else()
     qt_add_executable(Anime-Fetch-GUI
        "src/app.cpp"
-       "src/configs/gui_config.cpp"
+       "src/configs/app_config.h"
+       "src/configs/app_config.cpp"
     )
 endif()
 

@@ -1,4 +1,4 @@
-# Add VCPKG for MS Windows, it is a experiment for the Windows version
+# Add VCPKG for MS Windows, right now it is a experiment for the Windows version
 if (WIN32)
     if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
         set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
@@ -8,7 +8,12 @@ endif()
 # Make CMake 3.16 the minimum and add 3.19 versions for presets supports
 cmake_minimum_required(VERSION 3.16..3.19)
 
-project(Anime-Fetch VERSION 0.0.0 LANGUAGES CXX)
+# Master/Root Projet info and settings
+project("Anime-Fetch" 
+VERSION 0.0.0 
+LANGUAGES CXX
+DESCRIPTION "A neofetch-inspired utility that fetch you system info with a OS-Tan."
+)
 
 # Set the language to C++ 17
 set(CMAKE_CXX_STANDARD 17)

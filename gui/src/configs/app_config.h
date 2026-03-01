@@ -2,7 +2,7 @@
 
 #include "configs/lib_config.h"
 
-class GuiConfig {
+class AppConfig {
 private: 
 	LibConfig lib_config; 
 public:

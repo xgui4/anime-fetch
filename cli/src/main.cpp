@@ -4,6 +4,7 @@
 #include "services/system_info_service.h"
 #include "utils/cmdline_utils.h"
 #include "utils/utils.hpp"
+#include "configs/app_config.h"
 #include <iostream>
 #include <ostream>
 #include <stdexcept>
@@ -14,24 +15,29 @@ using std::endl;
 using std::string;
 
 int main(int argc, char *argv[]) {
-  LibConfig appConfig;
+  LibConfig libConfig;
+  AppConfig appConfig; 
 
   if (argc > 1) {
     const string colored_title =
-        create_colored_str(Color::ForegroundYellow, appConfig.LIBRARY_NAME);
+        create_colored_str(Color::ForegroundYellow, appConfig.APP_NAME);
+	const string colored_lib_title =
+		  create_colored_str(Color::ForegroundYellow, libConfig.LIBRARY_NAME);
 
     const string argument = argv[1];
 
     if (argument == "--version" || argument == "-v") {
       cout << get_app_version_str(colored_title, appConfig.APP_VERSION) << endl; 
+      cout << get_app_version_str(colored_lib_title, libConfig.LIB_VERSION) << endl; 
     }
 
     else if (argument == "--about" || argument == "-a") {
-      cout << get_about_app_str(colored_title, appConfig) << endl; 
+      cout << get_about_app_str(colored_title, appConfig.APP_ABOUT_INFO, appConfig.APP_REPO_LINK, appConfig.APP_REPO_LINK_LABEL) << endl; 
     }
 
     else if (argument == "--license" || argument == "-L") {
-      cout << get_license_info_str(colored_title, appConfig.LICENSE_INFO) << endl; 
+	  cout << get_license_info_str(colored_title, appConfig.APP_LICENSE_INFO) << endl; 
+      cout << get_license_info_str(colored_lib_title, libConfig.LIB_LICENSE_INFO) << endl; 
     }
 
     else if (argument == "--gui" || argument == "-g") {
@@ -39,7 +45,7 @@ int main(int argc, char *argv[]) {
     }
 
     else if (argument == "--help" || argument == "-h") {
-      cout << get_help_info_str(colored_title, appConfig) << endl; 
+		cout << get_help_info_str("Anime-Fetch", colored_title , libConfig) << endl; 
     }
   }
 
@@ -85,8 +91,8 @@ int main(int argc, char *argv[]) {
       if (systemInfo.getOsType() == OS_TYPE::Other) {
         system("kitty +icat ~/.anime-fetch/images/os-tan/windows/windows7-tan.png"); 
       }
-	  #elif WIN32
-	  system("chafa C:\\Users\\xgui4-dev\\.anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"); 
+      #elif WIN32
+      system("chafa C:\\Users\\xgui4-dev\\.anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"); 
       #endif
     }
     catch (std::runtime_error error) {

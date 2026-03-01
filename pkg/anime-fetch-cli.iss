@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "Anime-Fetch"
-#define MyAppVersion "0.0.0.1"
+#define MyAppVersion "0.0.0.0"
 #define MyAppPublisher "Xgui4"
 #define MyAppURL "https://github.com/xgui4/anime-fetch"
 #define MyAppExeName "Anime-Fetch.exe"

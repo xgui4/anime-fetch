@@ -1,9 +1,9 @@
 #pragma once
 
-#import <string>
-#import "location.hpp"
+#include <string>
+#include "location.hpp"
 
-struct ImageInfo {
+struct Image {
     std::string path;
     std::string fileName; 
     std::string altTxt; 
