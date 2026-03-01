@@ -3,25 +3,25 @@
 #include <string>
 
 struct MainboardInfo {
-    std::string vendor_name; 
-    std::string model_name; 
+    std::string vendorName; 
+    std::string modelName; 
     std::string version; 
     std::string serial;
     std::string bios; 
 
     std::string display() const {
         return "Motherboard : " +
-        vendor_name + " " +
-        model_name + " " +
+        vendorName + " " +
+        modelName + " " +
         version + " " +
         serial + " " +
         bios;  
     } 
 
-    std::string display_minimal() const {
+    std::string displayMinimal() const {
         return "Motherboard : " +
-        vendor_name + " " +
-        model_name + " " +
+        vendorName + " " +
+        modelName + " " +
         version + " " +
         bios;  
     } 

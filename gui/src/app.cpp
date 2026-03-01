@@ -25,8 +25,16 @@ int main(int argc, char** argv)
 {
 	int height = 500; 
     int width = 500; 
+    
+    QSysInfo systemInfo;
+	SystemInfoService systemInfoService; 
 
     QApplication app(argc, argv);
+
+    if (systemInfo.productType() == "windows") {
+		app.setStyle("fusion");
+    }
+
     auto * mainWindow = new QMainWindow();
 
     mainWindow->setMinimumHeight(height); 
@@ -37,9 +45,6 @@ int main(int argc, char** argv)
     auto * box = new QHBoxLayout(centralWidget); 
 
     box->setSpacing(5);
-
-    QSysInfo systemInfo; 
-    SystemInfoService systemInfoService; 
 
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 

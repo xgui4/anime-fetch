@@ -3,23 +3,23 @@
 #include <string>
 
 struct MemoryInfo {
-    std::string vendor_name;
-    std::string model_name; 
+    std::string vendorName;
+    std::string modelName; 
     std::string name; 
     std::string serial; 
-    std::string total_memory; 
-    std::string free_memory; 
+    std::string totalMemory; 
+    std::string freeMemory; 
 
-    std::string display_minimal() const {
+    std::string displayMinimal() const {
         return "Memory : " + 
-        free_memory + "/" + total_memory + "GB"; 
+        freeMemory + "/" + totalMemory + "GB"; 
     } 
 
     std::string display() const {
         return "Memory : " + 
-        vendor_name + " " +
+        vendorName + " " +
         name + " " +
         serial + " " + 
-        free_memory + "/" + total_memory + "GB"; 
+        freeMemory + "/" + totalMemory + "GB"; 
     } 
 };

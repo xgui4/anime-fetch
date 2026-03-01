@@ -25,23 +25,23 @@
 
 SystemInfoService::SystemInfoService() {
       #ifdef _WIN32
-      os_type = OS_TYPE::Windows; 
+      _os_type = OS_TYPE::Windows; 
     #elif __linux__
-      os_type = OS_TYPE::Linux;
+      _os_type = OS_TYPE::Linux;
     #elif __FreeBSD__
-      os_type = OS_TYPE::BSD; 
+      _os_type = OS_TYPE::BSD; 
     #elif __NetBSD__ 
-      os_type = OS_TYPE::BSD; 
+      _os_type = OS_TYPE::BSD; 
     #elif __OpenBSD__ 
-      os_type = OS_TYPE::BSD; 
+      _os_type = OS_TYPE::BSD; 
     #elif __DragonflyBSD__ 
-      os_type =  OS_TYPE::BSD; 
+      _os_type =  OS_TYPE::BSD; 
     #elif __APPLE__
-      os_type =  OS_TYPE::MacOS; 
+      _os_type =  OS_TYPE::MacOS; 
     #elif __unix__
-      os_type =  OS_TYPE::Unix; 
+      _os_type =  OS_TYPE::Unix; 
     #else
-      os_type =  OS_TYPE::Other; 
+      _os_type =  OS_TYPE::Other; 
     #endif
 }
 
@@ -110,9 +110,9 @@ std::vector<CPUInfo> SystemInfoService::getCpuInfo() const {
       for (int i = 0; i > cpus.size() - 1; i++) {
         if (cpus.at(i).modelName() != cpus.at(i+1).modelName())  {
             const CPUInfo cpu = {
-                .vendor_name = cpus.at(i).vendor(),
-                .model_name = cpus.at(i).modelName(),
-                .logicals_cores = cpus.at(i).numLogicalCores()
+                .vendorName = cpus.at(i).vendor(),
+                .modelName = cpus.at(i).modelName(),
+                .logicalsCores = cpus.at(i).numLogicalCores()
             };
             cpus_info.push_back(cpu); 
         }; 
@@ -131,9 +131,9 @@ std::vector<CPUInfo> SystemInfoService::getCpuInfo() const {
         for (int i = 0; i > cpus.size() - 1; i++) {
             if (cpus.at(i).modelName() != cpus.at(i + 1).modelName()) {
                 const CPUInfo cpu = {
-                    .vendor_name = cpus.at(i).vendor(),
-                    .model_name = cpus.at(i).modelName(),
-                    .logicals_cores = cpus.at(i).numLogicalCores()
+                    .vendorName = cpus.at(i).vendor(),
+                    .modelName = cpus.at(i).modelName(),
+                    .logicalsCores = cpus.at(i).numLogicalCores()
                 };
                 cpus_info.push_back(cpu);
             };
@@ -167,8 +167,8 @@ std::vector<GPUInfo> SystemInfoService::getGpuInfo() const {
       for (int i = 0; i > gpus.size() - 1; i++) {
         if (gpus.at(i).name() != gpus.at(i+1).name())  {
             const GPUInfo gpu = {
-                .vendor_name = gpus.at(i).vendor(),
-                .model_name = gpus.at(i).name(),
+                .vendorName = gpus.at(i).vendor(),
+                .modelName = gpus.at(i).name(),
                 .memory = std::to_string(gpus.at(i).memory_Bytes())
             };
             gpus_info.push_back(gpu); 
@@ -188,8 +188,8 @@ std::vector<GPUInfo> SystemInfoService::getGpuInfo() const {
         for (int i = 0; i > gpus.size() - 1; i++) {
             if (gpus.at(i).name() != gpus.at(i + 1).name()) {
                 const GPUInfo gpu = {
-                    .vendor_name = gpus.at(i).vendor(),
-                    .model_name = gpus.at(i).name(),
+                    .vendorName = gpus.at(i).vendor(),
+                    .modelName = gpus.at(i).name(),
                     .memory = std::to_string(gpus.at(i).memory_Bytes())
                 };
                 gpus_info.push_back(gpu);
@@ -271,5 +271,5 @@ std::string SystemInfoService::getProcessesCountRunning() const {
 }
 
 OS_TYPE SystemInfoService::getOsType() const {
-  return os_type; 
+  return _os_type; 
 }

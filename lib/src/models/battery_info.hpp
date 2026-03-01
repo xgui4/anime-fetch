@@ -3,23 +3,23 @@
 #include <string>
 
 struct BatteryInfo {
-    std::string vendor_name; 
-    std::string model_name; 
+    std::string vendorName; 
+    std::string modelName; 
     std::string technology; 
     std::string capacity; 
     std::string charging;
 
-    std::string display_minimal() const {
+    std::string displayMinimal() const {
         return "Battery : " + 
-        vendor_name + " " + 
-        model_name  + " " + 
+        vendorName + " " + 
+        modelName  + " " + 
         capacity;
     } 
 
     std::string display() const {
         return "Battery : " + 
-        vendor_name + " "  + 
-        model_name + " " + 
+        vendorName + " "  + 
+        modelName + " " + 
         technology + " " + 
         capacity + " " +  
         "("  + charging  + ")";

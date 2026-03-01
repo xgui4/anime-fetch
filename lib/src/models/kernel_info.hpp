@@ -1,11 +1,11 @@
 #pragma once
 
-#import <string>
+#include <string>
 
 struct KernelInfo{
     std::string name; 
 
-    std::string display() {
+    std::string display() const {
         return "Kernel : " + 
         name; 
     }

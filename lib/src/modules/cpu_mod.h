@@ -10,8 +10,11 @@ class CPUMod {
     ~CPUMod(); 
 
     std::string display() const; 
-    std::string display_features() const; 
+    std::string displayMinimal() const; 
+    std::string displayFeatures() const; 
 
     private:
-    CPUInfo cpu; 
+	std::vector<CPUInfo> cpus; 
+
+    std::vector<CPUInfo> getCPUInfo(); 
 };
