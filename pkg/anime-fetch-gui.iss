@@ -31,7 +31,7 @@ ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 DefaultGroupName=Anime-Fetch
 AllowNoIcons=yes
-LicenseFile=..\LICENSE.txt
+LicenseFile=..\LICENSE.md
 InfoBeforeFile=..\README.md
 InfoAfterFile=..\code-of-conduct.md
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
