@@ -18,6 +18,27 @@ add_library(Anime-Fetch-Lib STATIC
     "src/models/os_info.hpp"
     "src/models/kernel_info.hpp"
     "src/models/location.hpp"
+    "src/models/image_info.hpp"
+    "src/models/os_tan.hpp"
+    "src/models/os_info.hpp"
+    "src/modules/cpu_mod.cpp"
+    "src/modules/cpu_mod.h"
+    "src/modules/gpu_mod.cpp"
+    "src/modules/gpu_mod.h"
+    "src/modules/kernel_mod.cpp"
+    "src/modules/kernel_mod.h"
+    "src/modules/disk_mod.cpp"
+    "src/modules/disk_mod.h"
+    "src/modules/os_mod.cpp"
+    "src/modules/os_mod.h"
+    "src/modules/mainboard_mod.cpp"
+    "src/modules/mainboard_mod.h"
+    "src/modules/disk_mod.cpp"
+    "src/modules/disk_mod.h"
+    "src/modules/battery_info_mod.cpp"
+    "src/modules/battery_info_mod.h"
+    "src/modules/os_tan_mod.cpp" 
+    "src/modules/os_tan_mod.h"
     "src/services/system_info_service.cpp"
     "src/services/system_info_service.h"
     "src/utils/cmdline_utils.cpp"
@@ -33,6 +54,8 @@ add_library(Anime-Fetch-Lib STATIC
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     set(lfreist-hwinfo_DIR "/usr/local/lib/cmake/hwinfo")
     find_package(lfreist-hwinfo REQUIRED PATHS ${lfreist-hwinfo_DIR} NO_DEFAULT_PATH)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    find_package(lfreist-hwinfo CONFIG REQUIRED)
 endif()
 
 target_include_directories(Anime-Fetch-Lib PUBLIC 
@@ -41,4 +64,6 @@ target_include_directories(Anime-Fetch-Lib PUBLIC
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+        target_link_libraries(Anime-Fetch-Lib PRIVATE lfreist-hwinfo::hwinfo)
 endif()

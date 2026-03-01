@@ -30,6 +30,6 @@ public:
 
   OS_TYPE getOsType() const;
 private:
-  OS_TYPE os_type;
+  OS_TYPE _os_type;
 
 };

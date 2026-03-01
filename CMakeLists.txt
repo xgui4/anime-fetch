@@ -1,3 +1,10 @@
+# Add VCPKG for MS Windows, it is a experiment for the Windows version
+if (WIN32)
+    if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+        set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+    endif()
+endif()
+
 # Make CMake 3.16 the minimum and add 3.19 versions for presets supports
 cmake_minimum_required(VERSION 3.16..3.19)
 

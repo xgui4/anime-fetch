@@ -3,25 +3,25 @@
 #include <string>
 
 struct CPUInfo {
-    std::string vendor_name; 
-    std::string model_name;
+    std::string vendorName; 
+    std::string modelName;
     int frequency;  //@todo : TBD    
-    int logicals_cores; 
-    int cache_size; 
+    int logicalsCores; 
+    int cacheSize; 
 
     std::string display() const {
         return "CPU : " + 
-        vendor_name + " " + 
-        model_name + 
-        "(" + std::to_string(logicals_cores) + "X)"
-        + "( caches : " + std::to_string(cache_size) 
+        vendorName + " " + 
+        modelName + 
+        "(" + std::to_string(logicalsCores) + "X)"
+        + "( caches : " + std::to_string(cacheSize) 
         + "frequency: " + std::to_string(frequency) + "ghz)";  
     } 
 
-    std::string display_minimal() const {
+    std::string displayMinimal() const {
         return "CPU : " + 
-        vendor_name + " " + 
-        model_name + 
-        "(" + std::to_string(logicals_cores) + "X)"; 
+        vendorName + " " + 
+        modelName + 
+        "(" + std::to_string(logicalsCores) + "X)"; 
     } 
-}; 
+};  

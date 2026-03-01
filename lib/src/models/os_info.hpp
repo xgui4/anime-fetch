@@ -4,23 +4,23 @@
 
 struct OSInfo {
     std::string name; 
-    std::string vendor_name;
+    std::string vendorName;
     std::string short_name; 
     std::string version; 
     std::string arch; 
     std::string endianess; 
 
-    std::string display_minimal() {
+    std::string displayMinimal() const {
         return "OS : " + 
-        vendor_name + " " + 
+        vendorName + " " + 
         name + " " + 
         version + 
         arch;
     }
 
-    std::string display() {
+    std::string display() const {
         return "OS : " + 
-        vendor_name + " " + 
+        vendorName + " " + 
         name + " " + 
         version + " " + 
         arch + " " + 
