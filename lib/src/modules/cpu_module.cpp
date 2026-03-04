@@ -46,11 +46,11 @@ std::string CPUModule::displayFeatures() const {
 }
 
 // private
-std::vector<CPUInfo> CPUModule::getCPUInfo()
-{
+std::vector<CPUInfo> CPUModule::getCPUInfo() {
 #ifdef WIN32
 	throw std::runtime_error("Disabled temporaly due to a linker issue");
 #elif __linux__
+
 	std::vector<hwinfo::CPU> cpus_obj = hwinfo::getAllCPUs();
 	auto cpus = std::vector<CPUInfo>();
 
@@ -62,17 +62,17 @@ std::vector<CPUInfo> CPUModule::getCPUInfo()
 		auto new_cpu = CPUInfo {
 			cpu.vendor(),
 			cpu.modelName(),
-			cpu.regularClockSpeed_Mhz(), 
-			cpu.maxClockSpeed_Mhz(), 
+			-1, 
+			-1, 
 			cpu.numPhysicalCores(),
 			cpu.numLogicalCores(), 
 			cpu.L1CacheSize_Bytes(), 
 			cpu.L2CacheSize_Bytes(),
-			cpu.L3CacheSize_Bytes());
+			cpu.L3CacheSize_Bytes()
 		};
 		cpus.push_back(new_cpu);
 	}
-	return batteries;
+	return cpus;
 #elif __FreeBSD__
 	std::vector<CPUInfo> cpu {
 		CPUInfo {
@@ -91,3 +91,4 @@ std::vector<CPUInfo> CPUModule::getCPUInfo()
 #endif
 	throw std::runtime_error("Platform not supprted yet");
 }
+

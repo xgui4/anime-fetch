@@ -52,7 +52,7 @@ std::vector<GPUInfo> GPUModule::getGPUInfo() {
 	for (auto& gpu : gpus_obj) {
 		auto new_gpu = GPUInfo{
 			gpu.vendor(),
-			gpu.modelName()
+			gpu.name()
 		};
 		gpus.push_back(new_gpu);
 	}

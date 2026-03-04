@@ -9,9 +9,9 @@ struct CPUInfo {
     int maxFrequency;  
     int physicalsCores; 
     int logicalsCores; 
-    int l1cache; 
-    int l2cache; 
-    int l3cache; 
+    long l1cache; 
+    long l2cache; 
+    long l3cache; 
 
     std::string display() const {
         return "CPU : " + 
