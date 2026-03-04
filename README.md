@@ -77,7 +77,9 @@ cmake --build --preset MinSizeRel
 > they will soon be replaced by a better method, but the removable script 
 > will stay active to remove an older version of the program if installed via that script 
 
-- `install_app.sh` : install the assets ans app in portable modes (need superuser for certain task)
+- `remove_app.sh` : Remove the app installed by install by the older helper scripts
+- `setup-vcpkg.bat` : Install VCPKG for Windows 
+- `setup-vcpkg.sh` : Install VCPKG for FreeBSD, Linux and MacOS
 - `install_library.sh`: install the lfreist/hwinfo library (need superuser priviliged)
 
 ### Windows Wizard Creation (Inno Setup) 
