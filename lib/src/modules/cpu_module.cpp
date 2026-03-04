@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "../utils/utils.hpp"
 #include "../utils/cmdline_utils.h"
 
 CPUModule::CPUModule() : Module() {
@@ -76,7 +77,7 @@ std::vector<CPUInfo> CPUModule::getCPUInfo() {
 #elif __FreeBSD__
 	std::vector<CPUInfo> cpu {
 		CPUInfo {
-			""
+			"",
 			exec("sysctl -n hw.model"),
 			-1, 
 			std::stoi(exec("sysctl -n hw.ncpu")),

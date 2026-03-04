@@ -1,6 +1,10 @@
 #include "gpu_module.h"
 #include <stdexcept>
+#ifdef WIN32 
 #include <hwinfo/gpu.h>
+#elif __linux__
+#include <hwinfo/gpu.h>
+#endif
 
 GPUModule::GPUModule() {
 }

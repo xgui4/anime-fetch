@@ -17,7 +17,6 @@
 #include <QBoxLayout>
 #include <QDir>
 #include <QDebug>
-#include <vector>
 #include "os_type.hpp"
 #include "services/system_info_service.h" 
 
