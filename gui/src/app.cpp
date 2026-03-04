@@ -49,21 +49,9 @@ int main(int argc, char** argv)
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 
     const QString OS_NAME_STR = systemInfo.prettyProductName(); 
-    std::vector<CPUInfo> cpus = systemInfoService.getCpuInfo(); 
+    QString cpu_info = QString::fromStdString(systemInfoService.getCpuInfo()); 
 
-    QString cpus_info_string = ""; 
-
-    for (int i = 0; i < cpus.size(); i++) {
-        cpus_info_string += cpus.at(i).display(); 
-    }
-
-    std::vector<GPUInfo> gpus = systemInfoService.getGpuInfo(); 
-
-    QString gpus_info_string = ""; 
-
-    for (int i = 0; i < gpus.size(); i++) {
-        gpus_info_string += gpus.at(i).display(); 
-    }
+    QString gpu_info = QString::fromStdString(systemInfoService.getGpuInfo()); 
 
     const QString MEMORY_STR = QString::fromStdString(systemInfoService.getMemoryInfo()); 
 
@@ -71,8 +59,8 @@ int main(int argc, char** argv)
         "Hostname: " + HOSTNAME_STR + "\n" + 
         "Kernel: " + KERNEL_NAME_STR + "\n" + 
         "OS: " + OS_NAME_STR + "\n" + 
-        cpus_info_string + "\n" +
-        gpus_info_string  + "\n"
+        cpu_info + "\n" +
+        gpu_info  + "\n"
         "Memory : " + MEMORY_STR
     ); 
 

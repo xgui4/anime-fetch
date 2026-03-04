@@ -13,10 +13,13 @@ public:
   ~SystemInfoService();
 
   std::string getSystemInfo() const;
+  std::string getOSTan() const; 
   std::string getOperatingSystemInfo() const;
   std::string getKernelName() const;
-  std::vector<CPUInfo> getCpuInfo() const;
-  std::vector<GPUInfo> getGpuInfo() const;
+
+  std::string getCpuInfo() const;
+  std::string getGpuInfo() const;
+
   std::string getMemoryInfo() const;
   std::string getSwapMemoryInfo() const;
   std::string getStorageInfo() const;
@@ -31,5 +34,4 @@ public:
   OS_TYPE getOsType() const;
 private:
   OS_TYPE _os_type;
-
 };

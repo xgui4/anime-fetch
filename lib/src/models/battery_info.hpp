@@ -6,14 +6,14 @@ struct BatteryInfo {
     std::string vendorName; 
     std::string modelName; 
     std::string technology; 
-    std::string capacity; 
+    double capacity; 
     std::string charging;
 
     std::string displayMinimal() const {
         return "Battery : " + 
         vendorName + " " + 
         modelName  + " " + 
-        capacity;
+        std::to_string(capacity);
     } 
 
     std::string display() const {
@@ -21,7 +21,7 @@ struct BatteryInfo {
         vendorName + " "  + 
         modelName + " " + 
         technology + " " + 
-        capacity + " " +  
+        std::to_string(capacity) + " " +  
         "("  + charging  + ")";
     } 
 }; 

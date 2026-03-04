@@ -59,17 +59,9 @@ int main(int argc, char *argv[]) {
 
       cout << systemInfo.getMemoryInfo() << "GB" << endl; 
 
-      auto cpus_info = systemInfo.getCpuInfo(); 
+      cout << systemInfo.getCpuInfo(); 
 
-      for (CPUInfo cpu_info : cpus_info) {
-          cout << cpu_info.display() << endl; 
-      }
-
-      auto gpus_info = systemInfo.getGpuInfo(); 
-
-      for (GPUInfo gpu_info : gpus_info) {
-        cout << gpu_info.display() << endl; 
-      }
+      cout << systemInfo.getGpuInfo(); 
 
       #ifdef __unix__ 
       if (systemInfo.getOsType() == OS_TYPE::MacOS) {

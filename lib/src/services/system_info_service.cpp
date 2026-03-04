@@ -22,6 +22,8 @@
 
 #include <stdexcept>
 #include <vector>
+#include <modules/cpu_module.h>
+#include <modules/gpu_module.h>
 
 SystemInfoService::SystemInfoService() {
       #ifdef _WIN32
@@ -46,6 +48,35 @@ SystemInfoService::SystemInfoService() {
 }
 
 SystemInfoService::~SystemInfoService() {
+
+}
+
+std::string SystemInfoService::getOSTan() const {
+	std::string os_tan_img_path = ""; 
+	if (this->getOsType() == OS_TYPE::Windows) {
+		// if (systemInfo.productVersion() == "10") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows10-tan.png";
+		//}
+		// if (systemInfo.productVersion() == "11") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png";
+		//}
+	}
+	else if (this->getOsType() == OS_TYPE::MacOS) {
+		os_tan_img_path = ".anime-fetch/images/os-tan/mac/system-tan.png";
+	}
+	else if (this->getOsType() == OS_TYPE::Linux) {
+		os_tan_img_path = ".anime-fetch/images/os-tan/linux/arch-1-tan.png";
+	}
+	else if (this->getOsType() == OS_TYPE::BSD) {
+		os_tan_img_path = ".anime-fetch/images/os-tan/bsd/free-bsd-tan.png";
+	}
+	else if (this->getOsType() == OS_TYPE::Unix) {
+		os_tan_img_path = ".anime-fetch/images/os-tan/others/solaris-tan.png";
+	}
+	else {
+		os_tan_img_path = ".anime-fetch/images/os-tan/windows/windows7-tan.png";
+	}
+	return ""; 
 }
 
 std::string SystemInfoService::getSystemInfo() const {
@@ -67,7 +98,6 @@ std::string SystemInfoService::getOperatingSystemInfo() const {
     }
     catch (std::runtime_error error) {
         std::cout << create_error_str_from_runtime_error(error) << std::endl;
-        ;
         return "OS : Unknow";
     }
   #endif
@@ -101,108 +131,28 @@ std::string SystemInfoService::getKernelName() const {
   return "Kernel : Unknown";
 }
 
-std::vector<CPUInfo> SystemInfoService::getCpuInfo() const {
-  #ifdef __linux__
-    try {
-      const auto cpus = hwinfo::getAllCPUs();
-      auto cpus_info = std::vector<CPUInfo>();  
-
-      for (int i = 0; i > cpus.size() - 1; i++) {
-        if (cpus.at(i).modelName() != cpus.at(i+1).modelName())  {
-            const CPUInfo cpu = {
-                .vendorName = cpus.at(i).vendor(),
-                .modelName = cpus.at(i).modelName(),
-                .logicalsCores = cpus.at(i).numLogicalCores()
-            };
-            cpus_info.push_back(cpu); 
-        }; 
-      }
-      return cpus_info;  
-    }
-    catch (std::runtime_error error) {
-      std::cout << create_error_str_from_runtime_error(error) << std::endl; 
-    }
-	/*
-  #elif _WIN32
-    try {
-        const auto cpus = hwinfo::getAllCPUs();
-        auto cpus_info = std::vector<CPUInfo>();
-
-        for (int i = 0; i > cpus.size() - 1; i++) {
-            if (cpus.at(i).modelName() != cpus.at(i + 1).modelName()) {
-                const CPUInfo cpu = {
-                    .vendorName = cpus.at(i).vendor(),
-                    .modelName = cpus.at(i).modelName(),
-                    .logicalsCores = cpus.at(i).numLogicalCores()
-                };
-                cpus_info.push_back(cpu);
-            };
-        }
-        return cpus_info;
-    }
-    catch (std::runtime_error error) {
-        std::cout << create_error_str_from_runtime_error(error) << std::endl;
-    }
-    */
-  #endif
-  #ifdef __FreeBSD__
-    std::vector<CPU_INFO> cpu{ 
-      CPU_INFO {
-        "",
-        exec("sysctl -n hw.model"),
-        std::stoi (exec("sysctl -n hw.ncpu"))
-      }
-    };
-    return cpu; 
-  #endif
-  return std::vector<CPUInfo> {CPUInfo { "Error", "Error", 1, 1}};
+std::string SystemInfoService::getCpuInfo() const {
+	try {
+		CPUModule cpuModule = CPUModule();
+		cpuModule.displayMinimal(); 
+	}
+	catch (std::runtime_error err){
+		std::cout << err.what() << std::endl; 
+		return ""; 
+	}; 
+	return "";
 }
 
-std::vector<GPUInfo> SystemInfoService::getGpuInfo() const {
-  #ifdef __linux__
-    try {
-      const auto gpus = hwinfo::getAllGPUs();
-      auto gpus_info = std::vector<GPUInfo>();  
-
-      for (int i = 0; i > gpus.size() - 1; i++) {
-        if (gpus.at(i).name() != gpus.at(i+1).name())  {
-            const GPUInfo gpu = {
-                .vendorName = gpus.at(i).vendor(),
-                .modelName = gpus.at(i).name(),
-                .memory = std::to_string(gpus.at(i).memory_Bytes())
-            };
-            gpus_info.push_back(gpu); 
-        }; 
-      }
-      return gpus_info;  
-    }
-    catch (std::runtime_error error) {
-      std::cout << create_error_str_from_runtime_error(error) << std::endl; 
-    }
-  #elif _WIN32
-	/*
-    try {
-        const auto gpus = hwinfo::getAllGPUs();
-        auto gpus_info = std::vector<GPUInfo>();
-
-        for (int i = 0; i > gpus.size() - 1; i++) {
-            if (gpus.at(i).name() != gpus.at(i + 1).name()) {
-                const GPUInfo gpu = {
-                    .vendorName = gpus.at(i).vendor(),
-                    .modelName = gpus.at(i).name(),
-                    .memory = std::to_string(gpus.at(i).memory_Bytes())
-                };
-                gpus_info.push_back(gpu);
-            };
-        }
-        return gpus_info;
-    }
-	catch (std::runtime_error error) {
-		std::cout << create_error_str_from_runtime_error(error) << std::endl;
+std::string SystemInfoService::getGpuInfo() const {
+	try {
+		GPUModule gpuModule = GPUModule();
+		gpuModule.displayMinimal();
 	}
-    */
-  #endif
-  return std::vector<GPUInfo> {GPUInfo {"Error", "Error", "Error"}};
+	catch (std::runtime_error err) {
+		std::cout << err.what() << std::endl;
+		return "";
+	};
+	return "";
 }
 
 std::string SystemInfoService::getMemoryInfo() const {
@@ -231,6 +181,7 @@ std::string SystemInfoService::getMemoryInfo() const {
   #endif
    return "TBD";     
  }
+
 std::string SystemInfoService::getSwapMemoryInfo() const {
   throw std::runtime_error("Not Implemented Yet");
 }
