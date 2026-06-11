@@ -19,7 +19,7 @@ string exec(const char *cmd, const char *args[], const int argc) {
 
   string result = "";
 
-  #ifdef __linux__
+  #ifdef __unix__
     FILE *pipe = popen(full_cmd, "r");
   #elif _WIN32
     FILE *pipe = _popen(full_cmd, "r");
@@ -32,7 +32,7 @@ string exec(const char *cmd, const char *args[], const int argc) {
     result += buffer;
   }
 
-#ifdef __linux__
+#ifdef __unix__
   pclose(pipe);
 #elif _WIN32
   _pclose(pipe);
@@ -42,7 +42,7 @@ string exec(const char *cmd, const char *args[], const int argc) {
 }
 
 std::string bytes_to_gigabytes(long bytes) {
-  const unsigned long long GIBIBYTE = 1024ULL * 1024ULL * 1024ULL;
+  const long long GIBIBYTE = 1024ULL * 1024ULL * 1024ULL;
   return std::to_string(static_cast<double>(bytes) / GIBIBYTE);
 }
  

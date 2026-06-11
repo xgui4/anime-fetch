@@ -17,58 +17,48 @@
 #include <QBoxLayout>
 #include <QDir>
 #include <QDebug>
-#include <vector>
 #include "os_type.hpp"
 #include "services/system_info_service.h" 
 
 int main(int argc, char** argv)
 {
-	int height = 500; 
-    int width = 500; 
+	int height = 800; 
+    int width = 800; 
+    
+    QSysInfo systemInfo;
+	SystemInfoService systemInfoService; 
 
     QApplication app(argc, argv);
+
+    if (systemInfo.productType() == "windows") {
+		app.setStyle("fusion");
+    }
+
     auto * mainWindow = new QMainWindow();
 
     mainWindow->setMinimumHeight(height); 
     mainWindow->setMinimumWidth(width); 
 
-    auto *centralWidget = new QWidget(mainWindow);
-
+    auto * centralWidget = new QWidget(mainWindow);
     auto * box = new QHBoxLayout(centralWidget); 
 
     box->setSpacing(5);
 
-    QSysInfo systemInfo; 
-    SystemInfoService systemInfoService; 
-
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 
     const QString OS_NAME_STR = systemInfo.prettyProductName(); 
-    std::vector<CPUInfo> cpus = systemInfoService.getCpuInfo(); 
-
-    QString cpus_info_string = ""; 
-
-    for (int i = 0; i < cpus.size(); i++) {
-        cpus_info_string += cpus.at(i).display(); 
-    }
-
-    std::vector<GPUInfo> gpus = systemInfoService.getGpuInfo(); 
-
-    QString gpus_info_string = ""; 
-
-    for (int i = 0; i < gpus.size(); i++) {
-        gpus_info_string += gpus.at(i).display(); 
-    }
-
     const QString MEMORY_STR = QString::fromStdString(systemInfoService.getMemoryInfo()); 
+
+    QString cpu_info = QString::fromStdString(systemInfoService.getCpuInfo()); 
+    QString gpu_info = QString::fromStdString(systemInfoService.getGpuInfo()); 
 
     auto * systemFetchLabel = new QLabel(
         "Hostname: " + HOSTNAME_STR + "\n" + 
         "Kernel: " + KERNEL_NAME_STR + "\n" + 
         "OS: " + OS_NAME_STR + "\n" + 
-        cpus_info_string + "\n" +
-        gpus_info_string  + "\n"
-        "Memory : " + MEMORY_STR
+        cpu_info + "\n" +
+        gpu_info  + "\n" +
+        MEMORY_STR
     ); 
 
     QString os_tan_img_path; 
@@ -76,8 +66,12 @@ int main(int argc, char** argv)
     // QString logo_img_path; 
 
     if (systemInfoService.getOsType() == OS_TYPE::Windows) {
-        os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png"; 
-        qDebug() << systemInfo.productVersion() << Qt::endl;
+        if (systemInfo.productVersion() == "10") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows10-tan.png"; 
+        }
+		if (systemInfo.productVersion() == "11") {
+			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png";
+		}
     }
     else if (systemInfoService.getOsType() == OS_TYPE::MacOS) {
         os_tan_img_path =  ".anime-fetch/images/os-tan/mac/system-tan.png"; 

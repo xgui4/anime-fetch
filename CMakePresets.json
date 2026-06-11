@@ -31,6 +31,7 @@
       },
       "binaryDir": "${sourceDir}/out/build/${presetName}",
       "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_CXX_COMPILER": "cl"
       }
     },
@@ -112,7 +113,7 @@
   ],
   "vendor": {
     "qt-project.org/Presets": {
-      "checksum": "NCeFrTWctFhSpV9Cd9s7EjFQoa0="
+      "checksum": "xp9SUohMMOLjfHos+v3CTa+Na6A="
     }
   }
 }
