@@ -21,7 +21,6 @@
 #endif
 
 #include <stdexcept>
-#include <vector>
 #include <modules/cpu_module.h>
 #include <modules/gpu_module.h>
 
@@ -54,12 +53,8 @@ SystemInfoService::~SystemInfoService() {
 std::string SystemInfoService::getOSTan() const {
 	std::string os_tan_img_path = ""; 
 	if (this->getOsType() == OS_TYPE::Windows) {
-		// if (systemInfo.productVersion() == "10") {
-			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows10-tan.png";
-		//}
-		// if (systemInfo.productVersion() == "11") {
+      // FIXME : readd the others Windows Version Back! 
 			os_tan_img_path = ".anime-fetch\\images\\os-tan\\windows\\windows11-tan.png";
-		//}
 	}
 	else if (this->getOsType() == OS_TYPE::MacOS) {
 		os_tan_img_path = ".anime-fetch/images/os-tan/mac/system-tan.png";
@@ -159,7 +154,7 @@ std::string SystemInfoService::getMemoryInfo() const {
   #ifdef __linux__
     try {
       long bytes = hwinfo::Memory().total_Bytes(); 
-      return "Memory : " + bytes_to_gigabytes(bytes); 
+      return "Memory : " + bytes_to_gigabytes(bytes) + "GB"; 
     }
     catch (std::runtime_error error) {
       std::cout << create_error_str_from_runtime_error(error)<< std::endl;; 
@@ -168,7 +163,7 @@ std::string SystemInfoService::getMemoryInfo() const {
   #elif _WIN32
     try {
         long bytes = hwinfo::Memory().total_Bytes();
-        return "Memory : " + bytes_to_gigabytes(bytes);
+        return "Memory : " + bytes_to_gigabytes(bytes)  + "GB";
     }
     catch (std::runtime_error error) {
         std::cout << create_error_str_from_runtime_error(error) << std::endl;

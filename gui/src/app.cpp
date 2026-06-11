@@ -22,8 +22,8 @@
 
 int main(int argc, char** argv)
 {
-	int height = 500; 
-    int width = 500; 
+	int height = 800; 
+    int width = 800; 
     
     QSysInfo systemInfo;
 	SystemInfoService systemInfoService; 
@@ -39,8 +39,7 @@ int main(int argc, char** argv)
     mainWindow->setMinimumHeight(height); 
     mainWindow->setMinimumWidth(width); 
 
-    auto *centralWidget = new QWidget(mainWindow);
-
+    auto * centralWidget = new QWidget(mainWindow);
     auto * box = new QHBoxLayout(centralWidget); 
 
     box->setSpacing(5);
@@ -48,19 +47,18 @@ int main(int argc, char** argv)
     const QString HOSTNAME_STR = systemInfo.machineHostName(); 
     const QString KERNEL_NAME_STR = systemInfo.kernelType() + " " + systemInfo.kernelVersion(); 
     const QString OS_NAME_STR = systemInfo.prettyProductName(); 
-    QString cpu_info = QString::fromStdString(systemInfoService.getCpuInfo()); 
-
-    QString gpu_info = QString::fromStdString(systemInfoService.getGpuInfo()); 
-
     const QString MEMORY_STR = QString::fromStdString(systemInfoService.getMemoryInfo()); 
+
+    QString cpu_info = QString::fromStdString(systemInfoService.getCpuInfo()); 
+    QString gpu_info = QString::fromStdString(systemInfoService.getGpuInfo()); 
 
     auto * systemFetchLabel = new QLabel(
         "Hostname: " + HOSTNAME_STR + "\n" + 
         "Kernel: " + KERNEL_NAME_STR + "\n" + 
         "OS: " + OS_NAME_STR + "\n" + 
         cpu_info + "\n" +
-        gpu_info  + "\n"
-        "Memory : " + MEMORY_STR
+        gpu_info  + "\n" +
+        MEMORY_STR
     ); 
 
     QString os_tan_img_path; 

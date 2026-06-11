@@ -1,4 +1,5 @@
 # Credits
+
 - [App icon](https://www.reddit.com/r/MadobeNanami/comments/1hn9nlo/nanami_and_c_sharp)
 - Windows logo (Own by Microsoft Corporation) image available on Wikipedia
   - [Windows 11](https://en.wikipedia.org/wiki/Windows_11#/media/File:Windows_11_logo.svg/2)
@@ -17,7 +18,7 @@
   - [Windows 3X NT](https://en.wikipedia.org/wiki/Windows_NT_3.1#/media/File:Microsoft_Windows_NT_3.1_logo_with_wordmark.svg)
   - [Windows 4+ NT](https://en.wikipedia.org/wiki/Windows_NT_4.0#/media/File:Windows_NT_logo.svg)
 - List of OS-Tan (Most of these of fanmade)
-  - Linux 
+  - Linux
     - [OpenSuse](https://gallery.ostan-collections.net/data/original/56/c7/56c75406cc8333ec7fef6eb70ddc2709.jpg)
     - [Linux-Tan](https://gallery.ostan-collections.net/posts/32?q=linux)
     - [Arch-Tan](https://www.ostan-collections.net/wiki/index.php/Arch_Linux)
@@ -29,7 +30,7 @@
   - Mac-Tan
     - [Mac-Tan](https://www.ostan-collections.net/wiki/index.php/Mac-tan)
   - [FreeBSD](https://www.ostan-collections.net/wiki/index.php/FreeBSD)
-  - Windows 
+  - Windows
     - [OS-Tan Windows 1.0](https://www.ostan-collections.net/wiki/index.php/File:Windows1avi.png)
     - [OS-Tan.Windows 2.0](https://www.ostan-collections.net/wiki/index.php/File:Windows2avi.png)
     - [OS-Tan Windows 3.1](https://www.ostan-collections.net/wiki/index.php/File:Win3-1.jpg)
