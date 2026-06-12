@@ -127,3 +127,7 @@ CMakeScripts/
 cmake_install.cmake
 install_manifest.txt
 [Mm]akefile*
+
+## vcpkg
+
+vcpkg_installed/
