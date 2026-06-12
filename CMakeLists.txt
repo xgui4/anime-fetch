@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.16..3.19)
 
 # Master/Root Projet info and settings
 project("Anime-Fetch" 
-VERSION 0.0.0 
+VERSION 0.0.0.0
 LANGUAGES CXX
 DESCRIPTION "A neofetch-inspired utility that fetch you system info with a OS-Tan."
 )
@@ -26,10 +26,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(CompilerWarnings.cmake)
 
 # build the shared library
-add_subdirectory(lib)
+add_subdirectory(libs)
 
 # Build the cli and gui interface
-add_subdirectory(cli)
+add_subdirectory(anime-fetch-cli)
 
 # Build the GUI interface
-add_subdirectory(gui)
+add_subdirectory(anime-fetch-gui)

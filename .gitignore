@@ -86,9 +86,6 @@ CMakeLists.txt.user*
 # Temp/private file 
 ~*
 
-# bin/lib
-lib/hwinfo
-
 # CMake 19 presets
 CMakeUserPresets.json
 
@@ -130,3 +127,6 @@ install_manifest.txt
 ## VCPKG 
 vcpkg_installed/
 vcpkg/
+
+# bin/lib
+libs/hwinfo

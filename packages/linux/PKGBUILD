@@ -1,14 +1,15 @@
 # Maintainer xgui4 name@example.com
 pkgname=anime-fetch
-pkgver=0.0.0.0
+pkgver=nightly
 pkgrel=1
 pkgdesc="A neofetch-inspired utility that fetch you system info with a OS-Tan"
 arch=('x86_64')
 url="https://github.com/xgui4/hello-world-gtk"
 license=('GPLv3') 
 depends=(
-   'qt6'
-   'bash'
+  'qt6'
+  'bash'
+  'chafa'
 )
 makedepends=(
   'gcc'
@@ -16,14 +17,21 @@ makedepends=(
   'cmake'
   'git'
 )
-source=()
 
+provides=("${pkgname%-nightly}" "${pkgname%}" "anime-fetch-gui" "anime-fetch-cli" "anime-fetch-lib")
+source=("${pkgname}::git+${url}.git#branch=dev")
 sha256sums=('SKIP') # will have the check later 
 
+pkgver() {
+  cd "$pkgname"
+  # cutting off 'foo-' prefix that presents in the git tag
+  git describe --long --always --tags | sed 's/^foo-//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
 build() {
-  export CC=clang
+  cd "$pkgname"
 }
 
 package() {
-    echo "Coming Soon!"
+  echo "Coming Soon!"
 }

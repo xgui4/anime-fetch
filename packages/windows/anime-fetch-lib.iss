@@ -2,16 +2,16 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "anime-fetch-cli"
+#define MyAppName "anime-fetch-lib"
 #define MyAppVersion "0.0.0.0"
 #define MyAppPublisher "Xgui4"
-#define MyAppURL "https://github.com/xgui4/anime-fetch"
-#define MyAppExeName "Anime-Fetch.exe"
+#define MyAppURL "https://github.com/Anime-Fetch"
+#define MyAppExeName "Anime-Fetch-GUI.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{17692BAB-9441-47B9-B370-789FF40ED406}
+AppId={{210323EF-B96C-4E7C-9F40-1B4B11F35FFE}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppName}
+DefaultDirName={autopf}\Anime-Fetch
 UninstallDisplayIcon={app}\{#MyAppExeName}
 ; "ArchitecturesAllowed=x64compatible" specifies that Setup cannot run
 ; on anything but x64 and Windows 11 on Arm.
@@ -29,7 +29,7 @@ ArchitecturesAllowed=x64compatible
 ; meaning it should use the native 64-bit Program Files directory and
 ; the 64-bit view of the registry.
 ArchitecturesInstallIn64BitMode=x64compatible
-DefaultGroupName={#MyAppName}
+DefaultGroupName=Anime-Fetch
 AllowNoIcons=yes
 LicenseFile=..\LICENSE.md
 InfoBeforeFile=..\README.md
@@ -38,7 +38,7 @@ InfoAfterFile=..\code-of-conduct.md
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=installers
-OutputBaseFilename=anime-fetch-cli-setup 
+OutputBaseFilename=anime-fetch-gui-setup
 SolidCompression=yes
 WizardStyle=modern dark polar
 
@@ -50,14 +50,11 @@ Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\..\out\build\MinSizeRel-msvc\cli\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Xgui4-Dev\develop\anime-fetch\out\build\release\gui\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Xgui4-Dev\develop\anime-fetch\out\build\release\gui\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\Xgui4-Dev\develop\anime-fetch\assets\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-
-[Registry]
-Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"; 
-
-[Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

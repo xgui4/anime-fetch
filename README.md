@@ -8,7 +8,7 @@ This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch
 
 ## Dependancy/Library needed
 
-- GUI (Unix Like system only for now)
+- GUI
   - QT 6
 - CLI
   - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)

@@ -1,5 +1,7 @@
 #pragma once 
 
+#include <string>
+
 class AppConfig {
 public:
 	const std::string APP_NAME = "Anime-Fetch-CLI";

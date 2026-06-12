@@ -9,10 +9,7 @@
 // #include <hwinfo/cpu.h>
 #endif
 
-#include <iostream>
 #include <stdexcept>
-#include "../utils/utils.hpp"
-#include "../utils/cmdline_utils.h"
 
 CPUModule::CPUModule() : Module() {
 	this->_cpus = getCPUInfo(); 
@@ -31,7 +28,7 @@ std::string CPUModule::display() const {
 }
 
 std::string CPUModule::displayWithArgs(std::vector<std::any>) const {
-	return std::string();
+	throw std::runtime_error("Not Implemented Yet!");
 }
 
 std::string CPUModule::displayMinimal() const {

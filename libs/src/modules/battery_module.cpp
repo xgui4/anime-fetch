@@ -1,4 +1,5 @@
 #include "battery_module.h"
+#include "models/battery_info.hpp"
 #include <stdexcept>
 
 #ifdef WIN32
@@ -15,7 +16,15 @@ BatteryModule::~BatteryModule() {
 }
 
 std::string BatteryModule::display() const {
-	return std::string();
+	std::string batteries_info_string = "";
+
+	int index = 0; 
+	
+	for (BatteryInfo bat : this->batterties)
+	{
+		batteries_info_string += bat.display();
+	}
+	return batteries_info_string; 	
 }
 
 std::string BatteryModule::displayWithArgs(std::vector<std::any>) const {
@@ -23,7 +32,14 @@ std::string BatteryModule::displayWithArgs(std::vector<std::any>) const {
 }
 
 std::string BatteryModule::displayMinimal() const {
-	return std::string();
+	std::string batteries_info_string = "";
+
+	int index = 0; 
+	for (BatteryInfo bat : this->batterties)
+	{
+		batteries_info_string += bat.displayMinimal();
+	}
+	return batteries_info_string; 	
 }
 
 std::string BatteryModule::displayFeatures() const {

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=Anime-Fetch (GUI)
-Comment=A neofetch-inspired utility that fetch you system info with a OS-Tan
-Path=/usr/local/sbin/
-Exec=Anime-Fetch-GUI
-Icon=lce
-Terminal=false
