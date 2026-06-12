@@ -32,7 +32,6 @@ ui_*.h
 qrc_*.cpp
 Thumbs.db
 *.res
-*.rc
 /.qmake.cache
 /.qmake.stash
 
@@ -128,6 +127,6 @@ cmake_install.cmake
 install_manifest.txt
 [Mm]akefile*
 
-## vcpkg
-
+## VCPKG 
 vcpkg_installed/
+vcpkg/

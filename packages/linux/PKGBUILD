@@ -1,0 +1,29 @@
+# Maintainer xgui4 name@example.com
+pkgname=anime-fetch
+pkgver=0.0.0.0
+pkgrel=1
+pkgdesc="A neofetch-inspired utility that fetch you system info with a OS-Tan"
+arch=('x86_64')
+url="https://github.com/xgui4/hello-world-gtk"
+license=('GPLv3') 
+depends=(
+   'qt6'
+   'bash'
+)
+makedepends=(
+  'gcc'
+  'clang'
+  'cmake'
+  'git'
+)
+source=()
+
+sha256sums=('SKIP') # will have the check later 
+
+build() {
+  export CC=clang
+}
+
+package() {
+    echo "Coming Soon!"
+}
