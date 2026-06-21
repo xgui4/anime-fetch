@@ -5,7 +5,7 @@
 ### Unix Like System
 
 > [!WARNING]
-> This section is obselete and the prepare script is not ready yet
+> The preparation script is a work in progress and may not work as intended.
 
 ```bash
 # 1. If the library not installed yet
@@ -15,7 +15,7 @@ sudo ./prepare.sh
 cmake --build --preset MinSizeRel
 
 # 3.
-./build/publish/cli/Anime-Fetch
+./build/publish/cli/anime-fetch
 ```
 
 ### Windows (Visual Studio with QT-tools addon)
@@ -28,13 +28,13 @@ cmake --build --preset MinSizeRel
 2. Install the QT Visual Studio Tools Addon via the Extension Store or via this link (<https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2022>)
 3. Install QT 6 for Windows and add it your path (there is multiple way but make sure to install the "open soure" one)
 4. Set the QT Path with The QT Path
-5. Run or Debug the software via Visual Studio by the selecting either the `Anime-Fetch.exe` (CLI) or [need QT-Debug or QT-Release] `Anime-Fetch-GUI` (QT GUI)
+5. Run or Debug the software via Visual Studio by the selecting either the `anime-fetch.exe` (CLI) or [need QT-Debug or QT-Release] `anime-fetch-gui` (QT GUI)
 
 ### Windows Wizard Creation
 
-```batch
+```bash
 
-REM COMING SOON !
+# GUIDE COMING SOON !
 
 ```
 

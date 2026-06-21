@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16..3.19)
 
-project(Anime-Fetch VERSION 0.0.0 LANGUAGES CXX)
+project(anime-fetch VERSION 0.0.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -16,7 +16,7 @@ if(WIN32)
     set(WIN_RESOURCES "app.rc")
 endif()
 
-add_executable(Anime-Fetch
+add_executable(anime-Fetch
     "src/main.cpp"
     "src/configs/app_config.h"
      ${WIN_RESOURCES}
@@ -25,7 +25,7 @@ add_executable(Anime-Fetch
 if (WIN32)
     add_definitions(-DWIN32)
     set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
-    target_link_libraries(Anime-Fetch PRIVATE Anime-Fetch-Lib)
+    target_link_libraries(anime-Fetch PRIVATE Anime-Fetch-Lib)
 else()
-    target_link_libraries(Anime-Fetch PRIVATE Anime-Fetch-Lib ${CURSES_LIBRARIES})
+    target_link_libraries(anime-Fetch PRIVATE Anime-Fetch-Lib ${CURSES_LIBRARIES})
 endif()

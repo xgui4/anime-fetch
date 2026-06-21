@@ -2,17 +2,17 @@
 
 ![New Anime-Fetch Logo](assets/icons/new-appicon.png)
 
-A neofetch-inspired utility that fetch you system info with a [OS-Tan](https://en.wikipedia.org/wiki/OS-tan)
+A neofetch-inspired utility that fetch your system info with a [OS-Tan](https://en.wikipedia.org/wiki/OS-tan)
 
-This is a work in progress experimental cross-platfrom version of [xgui4/wpfetch](https://github.com/xgui4/wpfetch)
+This is a work in progress experimental cross-platform version of [xgui4/wpfetch](https://github.com/xgui4/wpfetch)
 
 ## Dependancy/Library needed
 
+- [lfreist/hwinfo](https://github.com/lfreist/hwinfo) (Windows, GNU/Linux and MacOS only)
+  - License : [MIT](LICENSE.lib.txt)
 - GUI
   - QT 6
 - CLI
-  - [lfreist/hwinfo](https://github.com/lfreist/hwinfo)
-    - License : [MIT](LICENSE.lib.txt)
   - Curses
 
 ## Recommended System Requirement

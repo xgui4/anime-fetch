@@ -6,7 +6,7 @@ install_vcpkg() {
     git clone https://github.com/microsoft/vcpkg.git
     cd vcpkg
     chmod +x "bootstrap-vcpkg.sh"
-    ./bootstrap-vcpkg.sh
+    ./bootstrap-vcpkg.sh --disable-metrics
     cd ..
 }
 
@@ -21,5 +21,5 @@ if [ "$("whoami")" = "root" ]; then
     install_vcpkg
     install_hwinfo_lib
 else
-    echo "The libray install must be running as root"
+    echo "The prepare script must be running as root"
 fi

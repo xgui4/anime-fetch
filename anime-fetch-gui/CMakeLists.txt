@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16..3.19)
 
-project(Anime-Fetch-GUI VERSION 0.0.0 LANGUAGES CXX)
+project(anime-fetch-gui VERSION 0.0.0.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,18 +10,18 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 qt_standard_project_setup()
 
 if(WIN32) 
-    qt_add_executable(Anime-Fetch-GUI
+    qt_add_executable(anime-fetch-gui
         "src/app.cpp"
         "src/configs/app_config.h"
         "src/configs/app_config.cpp"
         "app.rc"
     )
 else()
-    qt_add_executable(Anime-Fetch-GUI
+    qt_add_executable(anime-fetch-gui
        "src/app.cpp"
        "src/configs/app_config.h"
        "src/configs/app_config.cpp"
     )
 endif()
 
-target_link_libraries(Anime-Fetch-GUI PRIVATE Anime-Fetch-Lib Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(anime-fetch-gui PRIVATE Anime-Fetch-Lib Qt${QT_VERSION_MAJOR}::Widgets)
