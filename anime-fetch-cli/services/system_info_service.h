@@ -98,7 +98,7 @@ static char* getCpuInfo(void)
 #elif __CC65__
 	return "CPU : 6502";
 #elif __m68k__
-	return "M68K";
+	return "CPU : m68k";
 #else
 	return "CPU : Unknown";
 #endif
