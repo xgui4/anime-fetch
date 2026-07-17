@@ -1,7 +1,5 @@
 enum OS_TYPE { Windows, Linux, BSD, Unix, MacOS, Other };
 
-#define POSIXLY_CORRECT 1
-
 #if POSIXLY_CORRECT
 #include <unistd.h>
 #include <stdio.h>
