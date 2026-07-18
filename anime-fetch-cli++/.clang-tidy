@@ -1,0 +1,9 @@
+CheckOptions:
+  readability-identifier-naming.ClassCase: 'CamelCase'
+  readability-identifier-naming.ClassMethodCase: 'CamelCase'
+  readability-identifier-naming.FunctionCase: 'CamelCase'
+  readability-identifier-naming.EnumCase: 'CamelCase'
+  readability-identifier-naming.ClassMemberCase: 'camelBack'
+  readability-identifier-naming.MemberCase: 'camelBack'
+  readability-identifier-naming.MacroDefinitionCase: 'UPPER_CASE'
+  readability-identifier-naming.EnumConstantCase: 'UPPER_CASE'

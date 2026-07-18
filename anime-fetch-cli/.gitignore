@@ -1,0 +1,9 @@
+*
+!.clang-tidy
+app.rc
+!GNUmakefile
+!animefetch.c
+!services
+!system_info_service.h
+!new-appicon.ico
+!.gitignore

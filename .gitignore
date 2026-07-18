@@ -130,3 +130,7 @@ vcpkg/
 
 # bin/lib
 libs/hwinfo
+
+## C code
+
+animefetch

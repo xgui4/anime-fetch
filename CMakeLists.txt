@@ -29,7 +29,7 @@ include(CompilerWarnings.cmake)
 add_subdirectory(libs)
 
 # Build the cli and gui interface
-add_subdirectory(anime-fetch-cli)
+add_subdirectory(anime-fetch-cli++)
 
 # Build the GUI interface
 add_subdirectory(anime-fetch-gui)
