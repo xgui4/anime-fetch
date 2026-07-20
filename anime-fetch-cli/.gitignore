@@ -2,9 +2,11 @@
 !.clang-tidy
 app.rc
 !GNUmakefile
-!animefetch.c
-!services
-!system_info_service.h
+!src/
+!src/animefetch.c
+!src/services/
+!src/services/system_info_service.h
 !new-appicon.ico
 !CMakeLists.txt
 !.gitignore
+
