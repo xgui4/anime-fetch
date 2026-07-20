@@ -6,4 +6,5 @@ app.rc
 !services
 !system_info_service.h
 !new-appicon.ico
+!CMakeLists.txt
 !.gitignore

@@ -28,8 +28,11 @@ include(CompilerWarnings.cmake)
 # build the shared library
 add_subdirectory(libs)
 
-# Build the cli and gui interface
+# Build the cli c++ interface
 add_subdirectory(anime-fetch-cli++)
+
+# Build the cli pure c (work in progress)
+add_subdirectory(anime-fetch-cli)
 
 # Build the GUI interface
 add_subdirectory(anime-fetch-gui)
