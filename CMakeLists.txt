@@ -11,12 +11,13 @@ cmake_minimum_required(VERSION 3.16..3.19)
 # Master/Root Projet info and settings
 project("Anime-Fetch" 
 VERSION 0.0.0.0
-LANGUAGES CXX
 DESCRIPTION "A neofetch-inspired utility that fetch you system info with a OS-Tan."
 )
 
 # Set the language to C++ 17
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # make sure compile_command.json is created

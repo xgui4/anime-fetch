@@ -130,6 +130,7 @@ static char* getMemoryInfo(void)
 
 	return memory2;
 #endif
+	return 0;
 }
 
 static char* getSystemUptime(void)
