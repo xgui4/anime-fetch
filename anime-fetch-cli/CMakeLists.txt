@@ -20,7 +20,13 @@ add_executable(anime-fetch
     ${WIN_RESOURCES}
 )
 
+if (LINUX)
 target_compile_definitions(anime-fetch PRIVATE POSIXLY_CORRECT=1)
+endif()
+
+if (HURD)
+target_compile_definitions(anime-fetch PRIVATE POSIXLY_CORRECT=1)
+endif()
 
 target_include_directories(anime-fetch PRIVATE src/services)
 
