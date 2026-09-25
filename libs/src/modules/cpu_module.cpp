@@ -62,11 +62,11 @@ std::vector<CPUInfo> CPUModule::getCPUInfo() {
 			cpu.modelName(),
 			-1, 
 			-1, 
-			cpu.numPhysicalCores(),
-			cpu.numLogicalCores(), 
-			cpu.L1CacheSize_Bytes(), 
-			cpu.L2CacheSize_Bytes(),
-			cpu.L3CacheSize_Bytes()
+			-1, // cpu.numPhysicalCores(),
+			1,// cpu.numLogicalCores(), 
+			-1, // cpu.L1CacheSize_Bytes(), 
+			-1, // cpu.L2CacheSize_Bytes(),
+			-1 // cpu.L3CacheSize_Bytes()
 		};
 		cpus.push_back(new_cpu);
 	}

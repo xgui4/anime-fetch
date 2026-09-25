@@ -1,13 +1,12 @@
 #include "services/system_info_service.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 
 #if defined(__SPECTRUM__)
 #include <arch/zx.h>
 #endif
 
-int main(void)
+int main(int argc, char *argv[])
 {
 
 #if defined(__SPECTRUM__)

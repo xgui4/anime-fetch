@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 
       cout << systemInfo.getKernelName() << endl; 
 
-      cout << systemInfo.getMemoryInfo() << "GB" << endl; 
+      cout << systemInfo.getMemoryInfo() << endl; 
 
       cout << systemInfo.getCpuInfo(); 
 

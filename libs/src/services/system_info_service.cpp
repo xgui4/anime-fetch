@@ -153,7 +153,7 @@ std::string SystemInfoService::getGpuInfo() const {
 std::string SystemInfoService::getMemoryInfo() const {
   #ifdef __linux__
     try {
-      long bytes = hwinfo::Memory().total_Bytes(); 
+      long bytes = 0; // hwinfo::Memory().total_Bytes(); 
       return "Memory : " + bytes_to_gigabytes(bytes) + "GB"; 
     }
     catch (std::runtime_error error) {

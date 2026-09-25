@@ -69,17 +69,17 @@ static char* getKernelName(void)
 #elif __GNU__
 	return "Kernel : Hurd";
 #elif __FreeBSD__
-	return "Kernel : FreeBSD";
+	return "Kernel : kFreeBSD";
 #elif __NetBSD__
-	return "Kernel : NetBSD";
+	return "Kernel : kNetBSD";
 #elif __OpenBSD__
-	return "Kernel : OpenBSD";
+	return "Kernel : kOpenBSD";
 #elif __DragonflyBSD__
-	return "Kernel : DragonflyBSD";
+	return "Kernel : kDragonflyBSD";
 #elif __APPLE__
-	return "Kernel : Darwin";
+	return "Kernel : XNU";
 #elif __unix__
-	return "Kernel : UNIX";
+	return "Kernel : kUNIX";
 #else
 	return "Kernel : Unknown";
 #endif
