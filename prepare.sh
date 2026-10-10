@@ -3,7 +3,7 @@
 set -e
 
 install_hwinfo_lib() {
-    git clone https://github.com/lfreist/hwinfo lib/hwinfo && cd lib/hwinfo
+    git clone https://github.com/lfreist/hwinfo lib/hwinfo && cd libs/hwinfo
     mkdir build
     cmake -B build && cmake --build build
     cmake --install build

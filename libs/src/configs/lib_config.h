@@ -9,7 +9,7 @@ public :
   const std::string LIBRARY_NAME = "Anime-Fetch-Lib";
   const std::string LIB_REPO_LINK = "https://github.com/xgui4/anime-fetch";
   const std::string LIB_REPO_LINK_LABEL = "xgui4/anime-fetch";
-  const std::string LIB_VERSION = "0.0.0.0";
+  const std::string LIB_VERSION = "0.0.0.1";
   const std::string LIB_LICENSE_INFO = "GPLv3 License";
 
   std::string getCommandLineFlag(CmdLineArgs arg);

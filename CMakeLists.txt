@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.16..3.19)
 
 # Master/Root Projet info and settings
 project("Anime-Fetch" 
-VERSION 0.0.0.0
+VERSION 0.0.0.1
 DESCRIPTION "A neofetch-inspired utility that fetch you system info with a OS-Tan."
 )
 

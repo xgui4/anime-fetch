@@ -2,7 +2,7 @@
 
 pkgs.mkShell rec {
   pname = "anime-fetch";
-  version = "0.0.0.0";
+  version = "0.0.0.1";
   format = "cmake";
 
   src = ./.;
@@ -14,7 +14,7 @@ pkgs.mkShell rec {
   ];
 
   postInstall = ''
-    # Desktop Entry & Mime
+    # Desktop Entry
     install -Dm644 "packages/anime-fetch-gui.desktop" "$out/share/applications/anime-fetch-gui.desktop"
 
     # Docs

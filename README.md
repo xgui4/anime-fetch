@@ -49,6 +49,10 @@ This is a work in progress experimental cross-platform version of [xgui4/wpfetch
 
 [Compiling Guide](assets/docs/compiling.md)
 
+## No AI policy 
+
+[AI policy](NO-AI-POLICY.md)
+
 ## License
 
 [GPLv3](LICENSE.md)

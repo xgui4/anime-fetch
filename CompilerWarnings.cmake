@@ -6,8 +6,8 @@
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
 function(
-  myproject_set_project_warnings
-  project_name
+  animefetch_set_project_warnings
+  anime-fetch
   WARNINGS_AS_ERRORS
   MSVC_WARNINGS
   CLANG_WARNINGS
